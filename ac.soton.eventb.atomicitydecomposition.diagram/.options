@@ -1,0 +1,7 @@
+# Tracing options for the ac.soton.eventb.atomicitydecomposition.diagram plug-in
+
+# Common issues
+ac.soton.eventb.atomicitydecomposition.diagram/debug=false
+
+# Visual IDs
+ac.soton.eventb.atomicitydecomposition.diagram/debug/visualID=false
