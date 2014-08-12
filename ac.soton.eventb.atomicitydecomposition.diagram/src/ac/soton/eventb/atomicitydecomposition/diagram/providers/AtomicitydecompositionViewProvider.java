@@ -54,6 +54,12 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram2Edi
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram3EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramRefineEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label2EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label3EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label4EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label5EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label6EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LabelEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Leaf2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafName2EditPart;
@@ -543,6 +549,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5005 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(LabelEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -586,6 +595,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5006 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label2EditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -629,6 +641,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5007 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label3EditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -672,6 +687,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5008 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label4EditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -715,6 +733,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5009 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label5EditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -758,6 +779,9 @@ public class AtomicitydecompositionViewProvider extends AbstractProvider
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5010 = createLabel(node,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label6EditPart.VISUAL_ID));
 		return node;
 	}
 

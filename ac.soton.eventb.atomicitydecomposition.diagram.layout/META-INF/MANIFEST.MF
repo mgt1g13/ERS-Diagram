@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %Plugin.name
+Bundle-SymbolicName: ac.soton.eventb.atomicitydecomposition.diagram.layout;singleton:=true
+Bundle-Version: 1.2.0.qualifier
+Bundle-Activator: ac.soton.eventb.atomicitydecomposition.diagram.layout.LayoutPlugin
+Bundle-Vendor: %Plugin.providerName
+Bundle-Localization: plugin
+Export-Package: ac.soton.eventb.atomicitydecomposition.diagram.layout,
+ ac.soton.eventb.atomicitydecomposition.diagram.layout.actions,
+ ac.soton.eventb.atomicitydecomposition.diagram.layout.provider
+Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.core.resources;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.ui;bundle-version="[3.5.0,4.0.0)",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="[1.2.0,2.0.0)",
+ org.eclipse.gmf.runtime.notation;bundle-version="[1.2.0,2.0.0)",
+ org.eclipse.gmf.runtime.common.core;bundle-version="[1.2.0,2.0.0)",
+ ac.soton.eventb.atomicitydecomposition;bundle-version="1.0.0",
+ org.eventb.emf.core;bundle-version="3.0.0",
+ org.eclipse.gmf.runtime.diagram.ui.providers;bundle-version="1.7.0",
+ ac.soton.eventb.emf.core.extension;bundle-version="3.0.0"
+Bundle-ActivationPolicy: lazy; exceptions="org.eclipse.gmf.examples.runtime.diagram.layout.provider"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

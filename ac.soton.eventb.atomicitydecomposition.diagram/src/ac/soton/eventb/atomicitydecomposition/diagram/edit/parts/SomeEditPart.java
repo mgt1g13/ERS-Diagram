@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -20,6 +23,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -28,6 +33,7 @@ import org.eclipse.swt.graphics.Color;
 
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.policies.SomeCanonicalEditPolicy;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.policies.SomeItemSemanticEditPolicy;
+import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
 
 /**
@@ -114,8 +120,57 @@ public class SomeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof Label2EditPart) {
+			((Label2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureSomeLabelName());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof Label2EditPart) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		return getContentPane();
+	}
+
+	/**
+	 * @generated
+	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(50, 21);
 		return result;
 	}
 
@@ -140,9 +195,31 @@ public class SomeEditPart extends ShapeNodeEditPart {
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
-	 * @generated
+	 * @generated false
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			//			layout.setSpacing(5);
+			nodeShape.setLayoutManager(new StackLayout() {
+				public void layout(IFigure figure) {
+					Rectangle r = figure.getClientArea();
+					List children = figure.getChildren();
+					IFigure child;
+					Dimension d;
+					for (int i = 0; i < children.size(); i++) {
+						child = (IFigure) children.get(i);
+						d = child.getPreferredSize(r.width, r.height);
+						d.width = Math.min(d.width, r.width);
+						d.height = Math.min(d.height, r.height);
+						Rectangle childRect = new Rectangle(r.x
+								+ (r.width - d.width) / 2, r.y
+								+ (r.height - d.height) / 2, d.width, d.height);
+						child.setBounds(childRect);
+					}
+				}
+			});
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -190,6 +267,14 @@ public class SomeEditPart extends ShapeNodeEditPart {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(AtomicitydecompositionVisualIDRegistry
+				.getType(Label2EditPart.VISUAL_ID));
 	}
 
 	/**
@@ -255,17 +340,47 @@ public class SomeEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class SomeFigure extends RoundedRectangle {
+	public class SomeFigure extends Ellipse {
+
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureSomeLabelName;
 
 		/**
 		 * @generated
 		 */
 		public SomeFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(50),
+					getMapMode().DPtoLP(21)));
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
+			createContents();
+		}
+
+		/**
+		 * @generated false
+		 */
+		private void createContents() {
+
+			fFigureSomeLabelName = new WrappingLabel();
+
+			fFigureSomeLabelName.setText("some");
+
+			fFigureSomeLabelName.setAlignment(PositionConstants.CENTER);
+
+			this.add(fFigureSomeLabelName);
+
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureSomeLabelName() {
+			return fFigureSomeLabelName;
 		}
 
 	}

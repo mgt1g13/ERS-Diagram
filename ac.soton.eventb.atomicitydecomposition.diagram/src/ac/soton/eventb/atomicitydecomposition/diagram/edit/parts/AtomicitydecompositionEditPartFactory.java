@@ -46,20 +46,38 @@ public class AtomicitydecompositionEditPartFactory implements EditPartFactory {
 			case AllEditPart.VISUAL_ID:
 				return new AllEditPart(view);
 
+			case LabelEditPart.VISUAL_ID:
+				return new LabelEditPart(view);
+
 			case SomeEditPart.VISUAL_ID:
 				return new SomeEditPart(view);
+
+			case Label2EditPart.VISUAL_ID:
+				return new Label2EditPart(view);
 
 			case OrEditPart.VISUAL_ID:
 				return new OrEditPart(view);
 
+			case Label3EditPart.VISUAL_ID:
+				return new Label3EditPart(view);
+
 			case XorEditPart.VISUAL_ID:
 				return new XorEditPart(view);
+
+			case Label4EditPart.VISUAL_ID:
+				return new Label4EditPart(view);
 
 			case OneEditPart.VISUAL_ID:
 				return new OneEditPart(view);
 
+			case Label5EditPart.VISUAL_ID:
+				return new Label5EditPart(view);
+
 			case ParEditPart.VISUAL_ID:
 				return new ParEditPart(view);
+
+			case Label6EditPart.VISUAL_ID:
+				return new Label6EditPart(view);
 
 			case Leaf2EditPart.VISUAL_ID:
 				return new Leaf2EditPart(view);

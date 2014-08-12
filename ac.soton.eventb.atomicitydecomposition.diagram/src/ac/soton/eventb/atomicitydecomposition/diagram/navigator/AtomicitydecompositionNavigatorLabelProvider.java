@@ -33,6 +33,12 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram2Edi
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram3EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramRefineEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label2EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label3EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label4EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label5EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label6EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LabelEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Leaf2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafName2EditPart;
@@ -385,12 +391,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getAll_2004Text(View view) {
-		All domainModelElement = (All) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.All_2004,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(LabelEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2004); //$NON-NLS-1$
+					"Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -399,12 +411,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getSome_2005Text(View view) {
-		Some domainModelElement = (Some) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.Some_2005,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label2EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2005); //$NON-NLS-1$
+					"Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -413,12 +431,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getOr_2006Text(View view) {
-		Or domainModelElement = (Or) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.Or_2006,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label3EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2006); //$NON-NLS-1$
+					"Parser was not found for label " + 5007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -427,12 +451,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getXor_2007Text(View view) {
-		Xor domainModelElement = (Xor) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.Xor_2007,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label4EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2007); //$NON-NLS-1$
+					"Parser was not found for label " + 5008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -441,12 +471,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getOne_2008Text(View view) {
-		One domainModelElement = (One) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.One_2008,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label5EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2008); //$NON-NLS-1$
+					"Parser was not found for label " + 5009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -455,12 +491,18 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getPar_2009Text(View view) {
-		Par domainModelElement = (Par) view.getElement();
-		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+		IParser parser = AtomicitydecompositionParserProvider.getParser(
+				AtomicitydecompositionElementTypes.Par_2009,
+				view.getElement() != null ? view.getElement() : view,
+				AtomicitydecompositionVisualIDRegistry
+						.getType(Label6EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
-					"No domain element for view with visualID = " + 2009); //$NON-NLS-1$
+					"Parser was not found for label " + 5010); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

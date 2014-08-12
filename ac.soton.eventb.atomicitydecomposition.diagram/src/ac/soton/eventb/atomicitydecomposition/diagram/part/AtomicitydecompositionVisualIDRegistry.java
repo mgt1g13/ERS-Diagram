@@ -21,6 +21,12 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AndEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram3EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label2EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label3EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label4EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label5EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Label6EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LabelEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Leaf2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafName2EditPart;
@@ -279,6 +285,36 @@ public class AtomicitydecompositionVisualIDRegistry {
 			break;
 		case LoopEditPart.VISUAL_ID:
 			if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case AllEditPart.VISUAL_ID:
+			if (LabelEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SomeEditPart.VISUAL_ID:
+			if (Label2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OrEditPart.VISUAL_ID:
+			if (Label3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case XorEditPart.VISUAL_ID:
+			if (Label4EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case OneEditPart.VISUAL_ID:
+			if (Label5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ParEditPart.VISUAL_ID:
+			if (Label6EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

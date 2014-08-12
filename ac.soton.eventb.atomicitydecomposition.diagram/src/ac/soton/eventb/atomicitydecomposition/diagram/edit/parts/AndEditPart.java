@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -120,7 +123,7 @@ public class AndEditPart extends ShapeNodeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WrappingLabelEditPart) {
 			((WrappingLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureAndLabelFigure());
+					.getFigureAndLabelName());
 			return true;
 		}
 		return false;
@@ -167,7 +170,7 @@ public class AndEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(50, 21);
 		return result;
 	}
 
@@ -192,13 +195,30 @@ public class AndEditPart extends ShapeNodeEditPart {
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
-	 * @generated
+	 * @generated false
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
+			//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			//			layout.setSpacing(5);
+			nodeShape.setLayoutManager(new StackLayout() {
+				public void layout(IFigure figure) {
+					Rectangle r = figure.getClientArea();
+					List children = figure.getChildren();
+					IFigure child;
+					Dimension d;
+					for (int i = 0; i < children.size(); i++) {
+						child = (IFigure) children.get(i);
+						d = child.getPreferredSize(r.width, r.height);
+						d.width = Math.min(d.width, r.width);
+						d.height = Math.min(d.height, r.height);
+						Rectangle childRect = new Rectangle(r.x
+								+ (r.width - d.width) / 2, r.y
+								+ (r.height - d.height) / 2, d.width, d.height);
+						child.setBounds(childRect);
+					}
+				}
+			});
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
@@ -320,19 +340,21 @@ public class AndEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class AndFigure extends RoundedRectangle {
+	public class AndFigure extends Ellipse {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureAndLabelFigure;
+		private WrappingLabel fFigureAndLabelName;
 
 		/**
 		 * @generated
 		 */
 		public AndFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(50),
+					getMapMode().DPtoLP(21)));
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(5),
+					getMapMode().DPtoLP(5)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));
@@ -340,23 +362,25 @@ public class AndEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated false
 		 */
 		private void createContents() {
 
-			fFigureAndLabelFigure = new WrappingLabel();
+			fFigureAndLabelName = new WrappingLabel();
 
-			fFigureAndLabelFigure.setText("and");
+			fFigureAndLabelName.setText("and");
 
-			this.add(fFigureAndLabelFigure);
+			fFigureAndLabelName.setAlignment(PositionConstants.CENTER);
+
+			this.add(fFigureAndLabelName);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureAndLabelFigure() {
-			return fFigureAndLabelFigure;
+		public WrappingLabel getFigureAndLabelName() {
+			return fFigureAndLabelName;
 		}
 
 	}

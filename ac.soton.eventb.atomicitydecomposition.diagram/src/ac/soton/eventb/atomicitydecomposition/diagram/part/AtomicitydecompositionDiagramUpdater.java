@@ -74,7 +74,7 @@ public class AtomicitydecompositionDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	public static List<AtomicitydecompositionNodeDescriptor> getFlowDiagram_1000SemanticChildren(
 			View view) {
@@ -141,15 +141,15 @@ public class AtomicitydecompositionDiagramUpdater {
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
-					childElement) == Leaf2EditPart.VISUAL_ID) {
-				result.add(new AtomicitydecompositionNodeDescriptor(
-						childElement, Leaf2EditPart.VISUAL_ID));
-				continue;
-			}
-			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
 					childElement) == LeafEditPart.VISUAL_ID) {
 				result.add(new AtomicitydecompositionNodeDescriptor(
 						childElement, LeafEditPart.VISUAL_ID));
+				continue;
+			}
+			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
+					childElement) == Leaf2EditPart.VISUAL_ID) {
+				result.add(new AtomicitydecompositionNodeDescriptor(
+						childElement, Leaf2EditPart.VISUAL_ID));
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
@@ -205,7 +205,8 @@ public class AtomicitydecompositionDiagramUpdater {
 				result.add(new AtomicitydecompositionNodeDescriptor(
 						childElement, ParEditPart.VISUAL_ID));
 				continue;
-			}			
+			}
+
 		}
 		return result;
 	}
@@ -1110,7 +1111,6 @@ public class AtomicitydecompositionDiagramUpdater {
 		for (Iterator<?> destinations = source.getAndLink().iterator(); destinations
 				.hasNext();) {
 			Leaf destination = (Leaf) destinations.next();
-			System.out.println(destination.getName());
 			result.add(new AtomicitydecompositionLinkDescriptor(source,
 					destination,
 					AtomicitydecompositionElementTypes.AndAndLink_4002,
@@ -1311,14 +1311,15 @@ public class AtomicitydecompositionDiagramUpdater {
 	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(
 			FlowDiagram source) {
-		if(source == null)
+		if (source == null)
 			return Collections.EMPTY_LIST;
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		for (Iterator<?> destinations = source.getRefine().iterator(); destinations
 				.hasNext();) {
 			Child destination = (Child) destinations.next();
-			if(!destination.isRef())
-				result.add(new AtomicitydecompositionLinkDescriptor(source,
+			if (!destination.isRef())
+				result.add(new AtomicitydecompositionLinkDescriptor(
+						source,
 						destination,
 						AtomicitydecompositionElementTypes.FlowDiagramRefine_4014,
 						FlowDiagramRefineEditPart.VISUAL_ID));

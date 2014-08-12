@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: ac.soton.eventb.atomicitydecomposition.diagram.edit.parts, 
+Export-Package: ac.soton.eventb.atomicitydecomposition.diagram.edit.parts,
  ac.soton.eventb.atomicitydecomposition.diagram.part,
  ac.soton.eventb.atomicitydecomposition.diagram.providers
 Require-Bundle: org.eclipse.core.runtime,
