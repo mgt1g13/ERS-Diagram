@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -25,8 +26,11 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.FlowDiagramR
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.FlowDiagramRefineReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDecomposeCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDecomposeReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Xor2CreateCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.XorReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramRefineEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.MultiFlowDecomposeEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
 
@@ -100,6 +104,14 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
+			if (AtomicitydecompositionVisualIDRegistry
+					.getVisualID(outgoingLink) == Xor2EditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
 		}
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -137,6 +149,10 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new FlowDiagramRefineCreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.Xor_4016 == req.getElementType()) {
+			return getGEFWrapper(new Xor2CreateCommand(req, req.getSource(),
+					req.getTarget()));
+		}
 		return null;
 	}
 
@@ -154,7 +170,25 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 				.getElementType()) {
 			return null;
 		}
+		if (AtomicitydecompositionElementTypes.Xor_4016 == req.getElementType()) {
+			return null;
+		}
 		return null;
+	}
+
+	/**
+	 * Returns command to reorient EClass based link. New link target or source
+	 * should be the domain model element associated with this node.
+	 * 
+	 * @generated
+	 */
+	protected Command getReorientRelationshipCommand(
+			ReorientRelationshipRequest req) {
+		switch (getVisualID(req)) {
+		case Xor2EditPart.VISUAL_ID:
+			return getGEFWrapper(new XorReorientCommand(req));
+		}
+		return super.getReorientRelationshipCommand(req);
 	}
 
 	/**

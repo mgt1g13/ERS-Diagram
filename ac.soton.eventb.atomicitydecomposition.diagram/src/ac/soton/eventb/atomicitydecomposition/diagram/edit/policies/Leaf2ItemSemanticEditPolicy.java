@@ -42,6 +42,8 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParParLinkCr
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParParLinkReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.SomeSomeLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.SomeSomeLinkReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Xor2CreateCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.XorReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.XorXorLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.XorXorLinkReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkEditPart;
@@ -54,6 +56,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkEditP
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorXorLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
@@ -287,6 +290,14 @@ public class Leaf2ItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
+			if (AtomicitydecompositionVisualIDRegistry
+					.getVisualID(incomingLink) == Xor2EditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
@@ -394,6 +405,9 @@ public class Leaf2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new FlowDiagram2CreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.Xor_4016 == req.getElementType()) {
+			return null;
+		}
 		return null;
 	}
 
@@ -456,6 +470,10 @@ public class Leaf2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new FlowDiagram2CreateCommand(req,
 					req.getSource(), req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.Xor_4016 == req.getElementType()) {
+			return getGEFWrapper(new Xor2CreateCommand(req, req.getSource(),
+					req.getTarget()));
+		}
 		return null;
 	}
 
@@ -470,6 +488,8 @@ public class Leaf2ItemSemanticEditPolicy extends
 		switch (getVisualID(req)) {
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getGEFWrapper(new FlowDiagramReorientCommand(req));
+		case Xor2EditPart.VISUAL_ID:
+			return getGEFWrapper(new XorReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

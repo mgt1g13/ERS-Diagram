@@ -728,6 +728,21 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_FlowDiagram_4015_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Xor_4016_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Xor_4016_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**

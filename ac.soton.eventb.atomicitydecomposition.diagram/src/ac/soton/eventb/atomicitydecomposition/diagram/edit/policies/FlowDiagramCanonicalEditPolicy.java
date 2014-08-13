@@ -51,6 +51,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionDiagramUpdater;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionLinkDescriptor;
@@ -422,6 +423,14 @@ public class FlowDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(AtomicitydecompositionDiagramUpdater
 						.getFlowDiagram_4015ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case Xor2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(AtomicitydecompositionDiagramUpdater
+						.getXor_4016ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

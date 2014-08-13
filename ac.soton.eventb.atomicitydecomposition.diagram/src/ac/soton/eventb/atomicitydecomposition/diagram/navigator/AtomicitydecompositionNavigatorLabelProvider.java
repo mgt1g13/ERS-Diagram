@@ -58,6 +58,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeNewParamete
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.WrappingLabel2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.WrappingLabelEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorXorLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionDiagramEditorPlugin;
@@ -203,6 +204,9 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://soton.ac.uk/models/eventb/atomicitydecomposition?FlowDiagram", AtomicitydecompositionElementTypes.FlowDiagram_4015); //$NON-NLS-1$
+		case Xor2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://soton.ac.uk/models/eventb/atomicitydecomposition?Xor", AtomicitydecompositionElementTypes.Xor_4016); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -309,6 +313,8 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 			return getFlowDiagramRefine_4014Text(view);
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getFlowDiagram_4015Text(view);
+		case Xor2EditPart.VISUAL_ID:
+			return getXor_4016Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -774,6 +780,20 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 4015); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getXor_4016Text(View view) {
+		Xor domainModelElement = (Xor) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getReference();
+		} else {
+			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
+					"No domain element for view with visualID = " + 4016); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

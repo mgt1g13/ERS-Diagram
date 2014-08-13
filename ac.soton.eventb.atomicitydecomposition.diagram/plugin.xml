@@ -218,7 +218,7 @@
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Atomicitydecomposition"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016"/>
       </viewProvider>
    </extension>
 
@@ -233,7 +233,7 @@
             <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015"/>
+            <method name="getType()" value="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5001,5002,5004,5005,5006,5007,5008,5009,5010,5003"/>
@@ -525,6 +525,15 @@
             <param name="semanticHint" value="4015"/>
          </specializationType>
       </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/atomicitydecomposition">
+         <specializationType
+               id="ac.soton.eventb.atomicitydecomposition.diagram.Xor_4016"
+               name="%metatype.name.Xor_4016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.atomicitydecomposition.diagram.Xor_2007"/>
+            <param name="semanticHint" value="4016"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
@@ -563,6 +572,7 @@
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.MultiFlowDecompose_4013"/>
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.FlowDiagramRefine_4014"/>
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.FlowDiagram_4015"/>
+         <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.Xor_4016"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

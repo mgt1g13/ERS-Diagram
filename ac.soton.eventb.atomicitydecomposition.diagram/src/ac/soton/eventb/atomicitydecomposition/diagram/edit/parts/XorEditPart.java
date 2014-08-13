@@ -199,7 +199,7 @@ public class XorEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
-//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			//			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
 			//			layout.setSpacing(5);
 			nodeShape.setLayoutManager(new StackLayout() {
 				public void layout(IFigure figure) {
@@ -362,16 +362,16 @@ public class XorEditPart extends ShapeNodeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated false
 		 */
 		private void createContents() {
 
 			fFigureXorLabelName = new WrappingLabel();
 
 			fFigureXorLabelName.setText("xor");
-			
-			fFigureXorLabelName.setAlignment(PositionConstants.CENTER);
 
+			fFigureXorLabelName.setAlignment(PositionConstants.CENTER);
+			
 			this.add(fFigureXorLabelName);
 
 		}

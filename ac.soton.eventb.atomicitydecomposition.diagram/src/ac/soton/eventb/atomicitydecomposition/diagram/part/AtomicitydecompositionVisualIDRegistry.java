@@ -10,6 +10,7 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionPackage;
 import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
 import ac.soton.eventb.atomicitydecomposition.Leaf;
+import ac.soton.eventb.atomicitydecomposition.Xor;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkExternalLabelEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllEditPart;
@@ -52,6 +53,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkEdi
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkExternalLabelEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.WrappingLabel2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.WrappingLabelEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorXorLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorXorLinkExternalLabelEditPart;
@@ -394,6 +396,11 @@ public class AtomicitydecompositionVisualIDRegistry {
 				&& isFlowDiagram_4015((FlowDiagram) domainElement)) {
 			return FlowDiagram3EditPart.VISUAL_ID;
 		}
+		if (AtomicitydecompositionPackage.eINSTANCE.getXor().isSuperTypeOf(
+				domainElement.eClass())
+				&& isXor_4016((Xor) domainElement)) {
+			return Xor2EditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -433,6 +440,16 @@ public class AtomicitydecompositionVisualIDRegistry {
 	private static boolean isFlowDiagram_4015(FlowDiagram domainElement) {
 		Object result = AtomicitydecompositionOCLFactory.getExpression(2,
 				AtomicitydecompositionPackage.eINSTANCE.getFlowDiagram(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isXor_4016(Xor domainElement) {
+		Object result = AtomicitydecompositionOCLFactory.getExpression(3,
+				AtomicitydecompositionPackage.eINSTANCE.getXor(), null)
 				.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}

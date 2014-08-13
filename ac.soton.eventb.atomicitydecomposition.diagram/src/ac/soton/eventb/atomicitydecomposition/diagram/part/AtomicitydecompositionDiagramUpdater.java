@@ -53,6 +53,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditP
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeNewParameterEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorXorLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
@@ -83,7 +84,7 @@ public class AtomicitydecompositionDiagramUpdater {
 			return Collections.emptyList();
 		}
 		List<EObject> alreadyAdded = new ArrayList<EObject>();
-		
+
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionNodeDescriptor> result = new LinkedList<AtomicitydecompositionNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getRefine().iterator(); it.hasNext();) {
@@ -145,9 +146,9 @@ public class AtomicitydecompositionDiagramUpdater {
 			if (childElement == modelElement) {
 				continue;
 			}
-			if(alreadyAdded.contains(childElement))
+			if (alreadyAdded.contains(childElement))
 				continue;
-			
+
 			alreadyAdded.add(childElement);
 			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
 					childElement) == LeafEditPart.VISUAL_ID) {
@@ -259,6 +260,8 @@ public class AtomicitydecompositionDiagramUpdater {
 			return getFlowDiagram_2011ContainedLinks(view);
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getFlowDiagram_4015ContainedLinks(view);
+		case Xor2EditPart.VISUAL_ID:
+			return getXor_4016ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -293,6 +296,8 @@ public class AtomicitydecompositionDiagramUpdater {
 			return getFlowDiagram_2011IncomingLinks(view);
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getFlowDiagram_4015IncomingLinks(view);
+		case Xor2EditPart.VISUAL_ID:
+			return getXor_4016IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -327,6 +332,8 @@ public class AtomicitydecompositionDiagramUpdater {
 			return getFlowDiagram_2011OutgoingLinks(view);
 		case FlowDiagram3EditPart.VISUAL_ID:
 			return getFlowDiagram_4015OutgoingLinks(view);
+		case Xor2EditPart.VISUAL_ID:
+			return getXor_4016OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -339,6 +346,7 @@ public class AtomicitydecompositionDiagramUpdater {
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Xor_4016(modelElement));
 		return result;
 	}
 
@@ -465,6 +473,7 @@ public class AtomicitydecompositionDiagramUpdater {
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Xor_4016(modelElement));
 		return result;
 	}
 
@@ -476,6 +485,18 @@ public class AtomicitydecompositionDiagramUpdater {
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Xor_4016(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AtomicitydecompositionLinkDescriptor> getXor_4016ContainedLinks(
+			View view) {
+		Xor modelElement = (Xor) view.getElement();
+		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Xor_XorLink_4009(modelElement));
 		return result;
 	}
 
@@ -508,6 +529,8 @@ public class AtomicitydecompositionDiagramUpdater {
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_FlowDiagram_4015(
 				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Xor_4016(modelElement,
+				crossReferences));
 		return result;
 	}
 
@@ -668,6 +691,8 @@ public class AtomicitydecompositionDiagramUpdater {
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_FlowDiagram_4015(
 				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Xor_4016(modelElement,
+				crossReferences));
 		return result;
 	}
 
@@ -695,6 +720,22 @@ public class AtomicitydecompositionDiagramUpdater {
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getIncomingFeatureModelFacetLinks_MultiFlow_Decompose_4013(
+				modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AtomicitydecompositionLinkDescriptor> getXor_4016IncomingLinks(
+			View view) {
+		Xor modelElement = (Xor) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		result.addAll(getIncomingFeatureModelFacetLinks_FlowDiagram_Refine_4014(
+				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_FlowDiagram_4015(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -822,6 +863,7 @@ public class AtomicitydecompositionDiagramUpdater {
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Xor_4016(modelElement));
 		return result;
 	}
 
@@ -833,6 +875,18 @@ public class AtomicitydecompositionDiagramUpdater {
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
 		result.addAll(getOutgoingFeatureModelFacetLinks_FlowDiagram_Refine_4014(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Xor_4016(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AtomicitydecompositionLinkDescriptor> getXor_4016OutgoingLinks(
+			View view) {
+		Xor modelElement = (Xor) view.getElement();
+		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		result.addAll(getOutgoingFeatureModelFacetLinks_Xor_XorLink_4009(modelElement));
 		return result;
 	}
 
@@ -862,6 +916,38 @@ public class AtomicitydecompositionDiagramUpdater {
 			result.add(new AtomicitydecompositionLinkDescriptor(container, dst,
 					link, AtomicitydecompositionElementTypes.FlowDiagram_4015,
 					FlowDiagram3EditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated false
+	 */
+	private static Collection<AtomicitydecompositionLinkDescriptor> getContainedTypeModelFacetLinks_Xor_4016(
+			FlowDiagram container) {
+		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		if (container == null)
+			return Collections.EMPTY_LIST;
+		for (Iterator<?> links = container.getRefine().iterator(); links
+				.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof Xor) {
+				continue;
+			}
+			Xor link = (Xor) linkObject;
+			if (Xor2EditPart.VISUAL_ID != AtomicitydecompositionVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			List targets = link.getXorLink();
+			Object theTarget = targets.size() == 1 ? targets.get(0) : null;
+			if (false == theTarget instanceof Leaf) {
+				continue;
+			}
+			Leaf dst = (Leaf) theTarget;
+			result.add(new AtomicitydecompositionLinkDescriptor(container, dst,
+					link, AtomicitydecompositionElementTypes.Xor_4016,
+					Xor2EditPart.VISUAL_ID));
 		}
 		return result;
 	}
@@ -1114,6 +1200,38 @@ public class AtomicitydecompositionDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	private static Collection<AtomicitydecompositionLinkDescriptor> getIncomingTypeModelFacetLinks_Xor_4016(
+			Leaf target,
+			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		Collection<EStructuralFeature.Setting> settings = crossReferences
+				.get(target);
+		for (EStructuralFeature.Setting setting : settings) {
+			if (setting.getEStructuralFeature() != AtomicitydecompositionPackage.eINSTANCE
+					.getXor_XorLink()
+					|| false == setting.getEObject() instanceof Xor) {
+				continue;
+			}
+			Xor link = (Xor) setting.getEObject();
+			if (Xor2EditPart.VISUAL_ID != AtomicitydecompositionVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			if (false == link.eContainer() instanceof FlowDiagram) {
+				continue;
+			}
+			FlowDiagram container = (FlowDiagram) link.eContainer();
+			result.add(new AtomicitydecompositionLinkDescriptor(container,
+					target, link, AtomicitydecompositionElementTypes.Xor_4016,
+					Xor2EditPart.VISUAL_ID));
+
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_And_AndLink_4002(
 			And source) {
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
@@ -1239,10 +1357,16 @@ public class AtomicitydecompositionDiagramUpdater {
 		for (Iterator<?> destinations = source.getXorLink().iterator(); destinations
 				.hasNext();) {
 			Leaf destination = (Leaf) destinations.next();
-			result.add(new AtomicitydecompositionLinkDescriptor(source,
-					destination,
-					AtomicitydecompositionElementTypes.XorXorLink_4009,
-					XorXorLinkEditPart.VISUAL_ID));
+			if(!source.isRef())
+				result.add(new AtomicitydecompositionLinkDescriptor(source,
+						destination,
+						AtomicitydecompositionElementTypes.XorXorLink_4009,
+						XorXorLinkEditPart.VISUAL_ID));
+			else
+				result.add(new AtomicitydecompositionLinkDescriptor(source,
+						destination,
+						AtomicitydecompositionElementTypes.Xor_4016,
+						Xor2EditPart.VISUAL_ID));
 		}
 		return result;
 	}

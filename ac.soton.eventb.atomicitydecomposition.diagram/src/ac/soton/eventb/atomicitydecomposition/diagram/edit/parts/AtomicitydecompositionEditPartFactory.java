@@ -163,6 +163,9 @@ public class AtomicitydecompositionEditPartFactory implements EditPartFactory {
 			case FlowDiagram3EditPart.VISUAL_ID:
 				return new FlowDiagram3EditPart(view);
 
+			case Xor2EditPart.VISUAL_ID:
+				return new Xor2EditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

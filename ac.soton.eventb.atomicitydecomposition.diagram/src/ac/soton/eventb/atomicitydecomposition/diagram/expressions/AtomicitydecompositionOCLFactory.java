@@ -37,10 +37,11 @@ public class AtomicitydecompositionOCLFactory {
 	 * @generated
 	 */
 	protected AtomicitydecompositionOCLFactory() {
-		this.expressions = new AtomicitydecompositionAbstractExpression[3];
+		this.expressions = new AtomicitydecompositionAbstractExpression[4];
 		this.expressionBodies = new String[] {
 				"not self.eContainer().oclIsUndefined() and self.eContainer().oclIsKindOf(FlowDiagram)", //$NON-NLS-1$
 				"not self.eContainer().oclIsUndefined() and (self.eContainer().oclIsKindOf(And) or self.eContainer().oclIsKindOf(Loop) or self.eContainer().oclIsKindOf(All) or self.eContainer().oclIsKindOf(Some) or self.eContainer().oclIsKindOf(Or) or self.eContainer().oclIsKindOf(Xor) or self.eContainer().oclIsKindOf(One) or self.eContainer().oclIsKindOf(Par) or self.eContainer().oclIsKindOf(FlowDiagram))", //$NON-NLS-1$
+				"false", //$NON-NLS-1$
 				"false", //$NON-NLS-1$
 		};
 	}
