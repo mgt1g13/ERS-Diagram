@@ -1,13 +1,4 @@
-/******************************************************************************
- * Copyright (c) 2005, 2006 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    IBM Corporation - initial API and implementation 
- ****************************************************************************/
+
 
 package ac.soton.eventb.atomicitydecomposition.diagram.layout.provider;
 
@@ -22,9 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.layout.ILayoutNode;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eventb.emf.core.machine.Machine;
 
-import ac.soton.eventb.atomicitydecomposition.And;
 import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
-import ac.soton.eventb.atomicitydecomposition.Leaf;
 import ac.soton.eventb.atomicitydecomposition.TypedParameterExpression;
 
 /**
@@ -91,10 +80,7 @@ public class SquareLayoutProvider extends org.eclipse.gmf.runtime.diagram.ui.pro
 				final int rowsize = (int)Math.round(Math.sqrt(lnodes.size()));
 				object2node = new HashMap<EObject, ILayoutNode>();
 				object2offset = new HashMap<EObject, Float>();
-						
-			
 				ListIterator li = lnodes.listIterator();
-				
 				while (li.hasNext()) {
 					ILayoutNode lnode = (ILayoutNode)li.next();
 					
@@ -108,78 +94,13 @@ public class SquareLayoutProvider extends org.eclipse.gmf.runtime.diagram.ui.pro
 					if (lnode.getHeight() > gridHeight)
 						gridHeight = lnode.getHeight();
 				}
-				
 				// add a small buffer in HiMetric units
 				gridWidth += 15;
 				gridHeight += 15;
-				
-				
-				
 				positionTree(topLevelElement);
 				
-				
-//				int i = 0;
-//				System.out.println(totalLevels);
-//				for(ILayoutNode lnode : level2ListNodes.get(totalLevels)){
-//					Bounds bounds = (Bounds)lnode.getNode().getLayoutConstraint();
-//					bounds.setX(i * gridWidth);
-//					bounds.setY(totalLevels * gridHeight);
-//					lnode.getNode().setLayoutConstraint(bounds);
-//					
-//					EObject eContainer = lnode.getNode().getElement();
-//					if(eContainer != null && ancestorChildrenBorders.keySet().contains(eContainer)){
-//						ArrayList<Integer> lp = ancestorChildrenBorders.get(eContainer);
-//						if(lp.get(0) > i * gridWidth)
-//							lp.set(0, i * gridWidth);
-//						if(lp.get(1) < (i + 1) * gridWidth )
-//							lp.set(1, (i + 1) * gridWidth);
-//					}
-//					else if(eContainer != null){
-//						ArrayList<Integer> newList = new ArrayList<Integer>();
-//						newList.add(i * gridWidth);
-//						newList.add( (i+1) * gridWidth);
-//						
-//					}
-//					i++;
-//				}
-//				
-//				
-//				for(Integer it = totalLevels-1 ; it >= 2 ; it--){
-//					i = 0;
-//		
-//					for(ILayoutNode iln : level2ListNodes.get(it)){
-//						i++;
-//						Bounds bounds = (Bounds)iln.getNode().getLayoutConstraint();
-//						ArrayList<Integer> xpos = ancestorChildrenBorders.get(iln.getNode().getElement());
-//						//bounds.setX( xpos.get(0) + (xpos.get(1) - xpos.get(0))/2  );
-//						bounds.setX( (-1)*( it - i )* gridWidth  );
-//						bounds.setY((it  * gridHeight));
-//						iln.getNode().setLayoutConstraint(bounds);
-//						System.out.println(it);
-//						EObject eContainer = iln.getNode().getElement();
-//						
-//						if(eContainer != null && ancestorChildrenBorders.keySet().contains(eContainer)){
-//							ArrayList<Integer> lp = ancestorChildrenBorders.get(eContainer);
-//							if(lp.get(0) > i * gridWidth)
-//								lp.set(0, i * gridWidth);
-//							if(lp.get(1) < (i + 1) * gridWidth )
-//								lp.set(1, (i + 1) * gridWidth);
-//						}
-//						else if(eContainer != null){
-//							ArrayList<Integer> newList = new ArrayList<Integer>();
-//							newList.add(i * gridWidth);
-//							newList.add( (i+1) * gridWidth);
-//							
-//						}
-//						
-//					}
-//						
-//				}
-//				
-				
 			}
-			
-			
+						
 			private void positionTree(EObject obj){
 				Float offset = (float)1;
 				for(EObject eobj : obj.eContents()){		
@@ -196,29 +117,16 @@ public class SquareLayoutProvider extends org.eclipse.gmf.runtime.diagram.ui.pro
 				
 				Bounds bounds = (Bounds)ln.getNode().getLayoutConstraint();
 				if(obj instanceof FlowDiagram)
-					bounds.setX( (int) Math.round(Xoffset + (object2offset.get(obj))*gridWidth) + 15);
+					bounds.setX( (int) Math.round(Xoffset + (object2offset.get(obj))*gridWidth) + object2node.get(obj.eContainer()).getWidth()/2 ) ;
 				else
 					bounds.setX( (int) Math.round(Xoffset + (object2offset.get(obj))*gridWidth));
-				//bounds.setX( (int) Math.round(Xoffset + (object2offset.get(obj))*gridWidth));
-				//System.out.println(object2offset.get(obj));
 				bounds.setY( (int) Math.round(level * gridHeight));
 				ln.getNode().setLayoutConstraint(bounds);
-				if(obj instanceof And){// FlowDiagram && ((Leaf)obj.eContainer()).getName().equals("b")){
-					System.out.println();
-					System.out.println("GridWidth ->" + gridWidth);
-					
-				}
-				
 				
 				for(EObject eobj : obj.eContents()){
 					if(eobj instanceof TypedParameterExpression)
 						continue;
 					positionSubtree(eobj, Xoffset, level + 1);
-					if(obj instanceof And){//FlowDiagram && ((Leaf)obj.eContainer()).getName().equals("b")){
-						System.out.println(Xoffset);
-					
-					}
-					
 					if(object2offset.get(eobj) - 1 > -0.00001  && object2offset.get(eobj) - 1 < 0.00001 ){
 						Xoffset += (object2offset.get(eobj))*gridWidth;
 					}

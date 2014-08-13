@@ -1,5 +1,6 @@
 package ac.soton.eventb.atomicitydecomposition.diagram.part;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -81,10 +82,13 @@ public class AtomicitydecompositionDiagramUpdater {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
+		List<EObject> alreadyAdded = new ArrayList<EObject>();
+		
 		FlowDiagram modelElement = (FlowDiagram) view.getElement();
 		LinkedList<AtomicitydecompositionNodeDescriptor> result = new LinkedList<AtomicitydecompositionNodeDescriptor>();
 		for (Iterator<?> it = modelElement.getRefine().iterator(); it.hasNext();) {
 			Child childElement = (Child) it.next();
+			alreadyAdded.add(childElement);
 			int visualID = AtomicitydecompositionVisualIDRegistry
 					.getNodeVisualID(view, childElement);
 			if (visualID == LeafEditPart.VISUAL_ID) {
@@ -132,6 +136,7 @@ public class AtomicitydecompositionDiagramUpdater {
 						childElement, visualID));
 				continue;
 			}
+			alreadyAdded.remove(childElement);
 		}
 		Resource resource = modelElement.eResource();
 		for (Iterator<EObject> it = getPhantomNodesIterator(resource); it
@@ -140,6 +145,10 @@ public class AtomicitydecompositionDiagramUpdater {
 			if (childElement == modelElement) {
 				continue;
 			}
+			if(alreadyAdded.contains(childElement))
+				continue;
+			
+			alreadyAdded.add(childElement);
 			if (AtomicitydecompositionVisualIDRegistry.getNodeVisualID(view,
 					childElement) == LeafEditPart.VISUAL_ID) {
 				result.add(new AtomicitydecompositionNodeDescriptor(
@@ -206,7 +215,7 @@ public class AtomicitydecompositionDiagramUpdater {
 						childElement, ParEditPart.VISUAL_ID));
 				continue;
 			}
-
+			alreadyAdded.remove(childElement);
 		}
 		return result;
 	}
