@@ -1349,7 +1349,7 @@ public class AtomicitydecompositionDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_Xor_XorLink_4009(
 			Xor source) {
