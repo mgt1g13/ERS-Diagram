@@ -371,7 +371,7 @@ public class XorEditPart extends ShapeNodeEditPart {
 			fFigureXorLabelName.setText("xor");
 
 			fFigureXorLabelName.setAlignment(PositionConstants.CENTER);
-			
+
 			this.add(fFigureXorLabelName);
 
 		}

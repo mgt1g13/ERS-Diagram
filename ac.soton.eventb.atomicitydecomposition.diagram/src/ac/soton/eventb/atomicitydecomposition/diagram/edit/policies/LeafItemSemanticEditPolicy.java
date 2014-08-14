@@ -34,8 +34,10 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.LoopLoopLink
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.LoopLoopLinkReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDecomposeCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDecomposeReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.One2CreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneOneLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneOneLinkReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OrOrLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OrOrLinkReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParParLinkCreateCommand;
@@ -52,6 +54,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram3Edi
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramRefineEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopLoopLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.MultiFlowDecomposeEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.One2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditPart;
@@ -75,7 +78,7 @@ public class LeafItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
@@ -283,7 +286,8 @@ public class LeafItemSemanticEditPolicy extends
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry
-					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID) {
+					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID && incomingLink.getElement() != null) {
+				
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -292,6 +296,14 @@ public class LeafItemSemanticEditPolicy extends
 			}
 			if (AtomicitydecompositionVisualIDRegistry
 					.getVisualID(incomingLink) == Xor2EditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
+			if (AtomicitydecompositionVisualIDRegistry
+					.getVisualID(incomingLink) == One2EditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -408,6 +420,9 @@ public class LeafItemSemanticEditPolicy extends
 		if (AtomicitydecompositionElementTypes.Xor_4016 == req.getElementType()) {
 			return null;
 		}
+		if (AtomicitydecompositionElementTypes.One_4017 == req.getElementType()) {
+			return null;
+		}
 		return null;
 	}
 
@@ -474,6 +489,10 @@ public class LeafItemSemanticEditPolicy extends
 			return getGEFWrapper(new Xor2CreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.One_4017 == req.getElementType()) {
+			return getGEFWrapper(new One2CreateCommand(req, req.getSource(),
+					req.getTarget()));
+		}
 		return null;
 	}
 
@@ -490,6 +509,8 @@ public class LeafItemSemanticEditPolicy extends
 			return getGEFWrapper(new FlowDiagramReorientCommand(req));
 		case Xor2EditPart.VISUAL_ID:
 			return getGEFWrapper(new XorReorientCommand(req));
+		case One2EditPart.VISUAL_ID:
+			return getGEFWrapper(new OneReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

@@ -45,10 +45,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import ac.soton.eventb.atomicitydecomposition.Child;
+import ac.soton.eventb.atomicitydecomposition.Some;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.policies.AtomicitydecompositionTextSelectionEditPolicy;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionParserProvider;
+import ac.soton.eventb.atomicitydecomposition.diagram.utils.Utils;
 
 /**
  * @generated
@@ -201,7 +204,9 @@ public class Label2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * 
+	 * this is the label for SOME node
+	 * @generated false
 	 */
 	protected String getLabelText() {
 		String text = null;
@@ -214,7 +219,7 @@ public class Label2EditPart extends CompartmentEditPart implements
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
-		return text;
+		return text + Utils.mountParametersString((Some) parserElement);
 	}
 
 	/**

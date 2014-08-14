@@ -1,5 +1,6 @@
 package ac.soton.eventb.atomicitydecomposition.diagram.edit.parts;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ArrangeCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
@@ -45,10 +47,15 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import ac.soton.eventb.atomicitydecomposition.All;
+import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
+import ac.soton.eventb.atomicitydecomposition.Leaf;
+import ac.soton.eventb.atomicitydecomposition.TypedParameterExpression;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.policies.AtomicitydecompositionTextSelectionEditPolicy;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionParserProvider;
+import ac.soton.eventb.atomicitydecomposition.diagram.utils.Utils;
 
 /**
  * @generated
@@ -206,7 +213,7 @@ public class LeafName2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	protected String getLabelText() {
 		String text = null;
@@ -219,9 +226,10 @@ public class LeafName2EditPart extends CompartmentEditPart implements
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
-		return text;
+		
+		return text + Utils.mountParametersString((Leaf) this.getParserElement());
 	}
-
+	
 	/**
 	 * @generated
 	 */

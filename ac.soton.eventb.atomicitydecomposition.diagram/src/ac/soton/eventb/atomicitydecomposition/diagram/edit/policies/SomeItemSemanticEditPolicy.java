@@ -51,7 +51,7 @@ public class SomeItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
@@ -83,7 +83,7 @@ public class SomeItemSemanticEditPolicy extends
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry
-					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID) {
+					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID && incomingLink.getElement() != null) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));

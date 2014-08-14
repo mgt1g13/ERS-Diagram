@@ -10,6 +10,7 @@ import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionPackage;
 import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
 import ac.soton.eventb.atomicitydecomposition.Leaf;
+import ac.soton.eventb.atomicitydecomposition.One;
 import ac.soton.eventb.atomicitydecomposition.Xor;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkExternalLabelEditPart;
@@ -35,6 +36,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafNameEditPar
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopLoopLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopLoopLinkExternalLabelEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.One2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneNewParameterEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneNewParameterExternalLabelEditPart;
@@ -401,6 +403,11 @@ public class AtomicitydecompositionVisualIDRegistry {
 				&& isXor_4016((Xor) domainElement)) {
 			return Xor2EditPart.VISUAL_ID;
 		}
+		if (AtomicitydecompositionPackage.eINSTANCE.getOne().isSuperTypeOf(
+				domainElement.eClass())
+				&& isOne_4017((One) domainElement)) {
+			return One2EditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -450,6 +457,16 @@ public class AtomicitydecompositionVisualIDRegistry {
 	private static boolean isXor_4016(Xor domainElement) {
 		Object result = AtomicitydecompositionOCLFactory.getExpression(3,
 				AtomicitydecompositionPackage.eINSTANCE.getXor(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isOne_4017(One domainElement) {
+		Object result = AtomicitydecompositionOCLFactory.getExpression(4,
+				AtomicitydecompositionPackage.eINSTANCE.getOne(), null)
 				.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}

@@ -37,6 +37,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopLoopLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.MultiFlowDecomposeEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.One2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneNewParameterEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkEditPart;
@@ -366,6 +367,10 @@ public class AtomicitydecompositionNavigatorContentProvider implements
 					AtomicitydecompositionVisualIDRegistry
 							.getType(Xor2EditPart.VISUAL_ID));
 			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(One2EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
 			if (!links.isEmpty()) {
 				result.add(links);
 			}
@@ -445,6 +450,11 @@ public class AtomicitydecompositionNavigatorContentProvider implements
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
 					AtomicitydecompositionVisualIDRegistry
 							.getType(Xor2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(One2EditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -818,6 +828,11 @@ public class AtomicitydecompositionNavigatorContentProvider implements
 							.getType(Xor2EditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(One2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
 			}
@@ -850,6 +865,11 @@ public class AtomicitydecompositionNavigatorContentProvider implements
 			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
 					AtomicitydecompositionVisualIDRegistry
 							.getType(Xor2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(One2EditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
@@ -1388,6 +1408,40 @@ public class AtomicitydecompositionNavigatorContentProvider implements
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			AtomicitydecompositionNavigatorGroup source = new AtomicitydecompositionNavigatorGroup(
 					Messages.NavigatorGroupName_Xor_4016_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(LeafEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(Leaf2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AtomicitydecompositionVisualIDRegistry
+							.getType(FlowDiagram2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case One2EditPart.VISUAL_ID: {
+			LinkedList<AtomicitydecompositionAbstractNavigatorItem> result = new LinkedList<AtomicitydecompositionAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			AtomicitydecompositionNavigatorGroup target = new AtomicitydecompositionNavigatorGroup(
+					Messages.NavigatorGroupName_One_4017_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AtomicitydecompositionNavigatorGroup source = new AtomicitydecompositionNavigatorGroup(
+					Messages.NavigatorGroupName_One_4017_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(Collections.singleton(sv),

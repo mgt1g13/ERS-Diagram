@@ -335,7 +335,7 @@ public class Leaf2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(11);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(12);
 		types.add(AtomicitydecompositionElementTypes.AndAndLink_4002);
 		types.add(AtomicitydecompositionElementTypes.LoopLoopLink_4003);
 		types.add(AtomicitydecompositionElementTypes.AllAllLink_4004);
@@ -347,6 +347,7 @@ public class Leaf2EditPart extends ShapeNodeEditPart {
 		types.add(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014);
 		types.add(AtomicitydecompositionElementTypes.FlowDiagram_4015);
 		types.add(AtomicitydecompositionElementTypes.Xor_4016);
+		types.add(AtomicitydecompositionElementTypes.One_4017);
 		return types;
 	}
 
@@ -377,6 +378,8 @@ public class Leaf2EditPart extends ShapeNodeEditPart {
 			types.add(AtomicitydecompositionElementTypes.Leaf_2001);
 			types.add(AtomicitydecompositionElementTypes.Leaf_2010);
 		} else if (relationshipType == AtomicitydecompositionElementTypes.Xor_4016) {
+			types.add(AtomicitydecompositionElementTypes.FlowDiagram_2011);
+		} else if (relationshipType == AtomicitydecompositionElementTypes.One_4017) {
 			types.add(AtomicitydecompositionElementTypes.FlowDiagram_2011);
 		}
 		return types;
