@@ -45,14 +45,29 @@ public class FlowDiagram3EditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new FlowDiagramRefineIsRefFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public FlowDiagramRefineIsRefFigure getPrimaryShape() {
+		return (FlowDiagramRefineIsRefFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class FlowDiagramRefineIsRefFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public FlowDiagramRefineIsRefFigure() {
+			this.setLineWidth(3);
+
+		}
+
 	}
 
 }

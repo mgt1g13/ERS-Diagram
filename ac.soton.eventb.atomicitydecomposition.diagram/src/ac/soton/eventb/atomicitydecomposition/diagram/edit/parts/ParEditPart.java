@@ -351,10 +351,8 @@ public class ParEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public ParFigure() {
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(50),
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(50),
 					getMapMode().DPtoLP(21)));
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(5),
-					getMapMode().DPtoLP(5)));
 			this.setBorder(new MarginBorder(getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5), getMapMode().DPtoLP(5),
 					getMapMode().DPtoLP(5)));

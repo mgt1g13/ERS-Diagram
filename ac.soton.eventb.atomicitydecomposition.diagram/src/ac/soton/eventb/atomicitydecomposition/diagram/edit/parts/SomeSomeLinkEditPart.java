@@ -66,6 +66,7 @@ public class SomeSomeLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public SomeSomeLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

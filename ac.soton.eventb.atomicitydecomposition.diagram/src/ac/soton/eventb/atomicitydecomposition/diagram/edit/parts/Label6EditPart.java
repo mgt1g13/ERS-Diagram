@@ -216,7 +216,7 @@ public class Label6EditPart extends CompartmentEditPart implements
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
-		return text + Utils.mountParametersString((Child)parserElement);
+		return text + Utils.mountParametersString((Child) parserElement);
 	}
 
 	/**

@@ -66,6 +66,7 @@ public class OneOneLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public OneOneLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

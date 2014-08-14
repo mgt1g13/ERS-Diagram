@@ -66,6 +66,7 @@ public class AllAllLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public AllAllLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

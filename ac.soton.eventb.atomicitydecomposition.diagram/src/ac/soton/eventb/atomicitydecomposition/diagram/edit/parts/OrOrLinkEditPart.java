@@ -66,6 +66,7 @@ public class OrOrLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public OrOrLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

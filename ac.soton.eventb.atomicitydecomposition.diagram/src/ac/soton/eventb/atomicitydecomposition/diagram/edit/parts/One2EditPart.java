@@ -45,14 +45,29 @@ public class One2EditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new OneOneLinkIsRefFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public OneOneLinkIsRefFigure getPrimaryShape() {
+		return (OneOneLinkIsRefFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class OneOneLinkIsRefFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public OneOneLinkIsRefFigure() {
+			this.setLineWidth(3);
+
+		}
+
 	}
 
 }

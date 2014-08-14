@@ -66,6 +66,7 @@ public class AndAndLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public AndAndLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

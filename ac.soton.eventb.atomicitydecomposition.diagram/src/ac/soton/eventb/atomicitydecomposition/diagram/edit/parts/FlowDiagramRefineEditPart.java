@@ -66,6 +66,7 @@ public class FlowDiagramRefineEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public FlowDiagramRefineFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

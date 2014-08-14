@@ -1009,12 +1009,13 @@ public class AtomicitydecompositionDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getContainedTypeModelFacetLinks_One_4017(
 			FlowDiagram container) {
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
-		if(container == null) return Collections.EMPTY_LIST;
+		if (container == null)
+			return Collections.EMPTY_LIST;
 		for (Iterator<?> links = container.getRefine().iterator(); links
 				.hasNext();) {
 			EObject linkObject = (EObject) links.next();
@@ -1486,7 +1487,7 @@ public class AtomicitydecompositionDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated false
 	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_One_OneLink_4010(
 			One source) {
@@ -1495,15 +1496,14 @@ public class AtomicitydecompositionDiagramUpdater {
 		if (destination == null) {
 			return result;
 		}
-		if(!source.isRef())
+		if (!source.isRef())
 			result.add(new AtomicitydecompositionLinkDescriptor(source,
 					destination,
 					AtomicitydecompositionElementTypes.OneOneLink_4010,
 					OneOneLinkEditPart.VISUAL_ID));
 		else
 			result.add(new AtomicitydecompositionLinkDescriptor(source,
-					destination,
-					AtomicitydecompositionElementTypes.One_4017,
+					destination, AtomicitydecompositionElementTypes.One_4017,
 					One2EditPart.VISUAL_ID));
 		return result;
 	}

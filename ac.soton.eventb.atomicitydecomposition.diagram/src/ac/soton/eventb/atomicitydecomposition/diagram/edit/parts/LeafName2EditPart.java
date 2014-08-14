@@ -226,10 +226,11 @@ public class LeafName2EditPart extends CompartmentEditPart implements
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
-		
-		return text + Utils.mountParametersString((Leaf) this.getParserElement());
+
+		return text
+				+ Utils.mountParametersString((Leaf) this.getParserElement());
 	}
-	
+
 	/**
 	 * @generated
 	 */

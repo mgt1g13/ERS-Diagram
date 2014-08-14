@@ -45,14 +45,29 @@ public class Xor2EditPart extends ConnectionNodeEditPart implements
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
+		return new XorXorLinkIsRefFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
+	public XorXorLinkIsRefFigure getPrimaryShape() {
+		return (XorXorLinkIsRefFigure) getFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class XorXorLinkIsRefFigure extends PolylineConnectionEx {
+
+		/**
+		 * @generated
+		 */
+		public XorXorLinkIsRefFigure() {
+			this.setLineWidth(3);
+
+		}
+
 	}
 
 }

@@ -66,6 +66,7 @@ public class LoopLoopLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public LoopLoopLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

@@ -294,7 +294,8 @@ public class Leaf2ItemSemanticEditPolicy extends
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry
-					.getVisualID(incomingLink) == Xor2EditPart.VISUAL_ID && incomingLink.getElement() != null) {
+					.getVisualID(incomingLink) == Xor2EditPart.VISUAL_ID
+					&& incomingLink.getElement() != null) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -302,7 +303,8 @@ public class Leaf2ItemSemanticEditPolicy extends
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry
-					.getVisualID(incomingLink) == One2EditPart.VISUAL_ID && incomingLink.getElement() != null) {
+					.getVisualID(incomingLink) == One2EditPart.VISUAL_ID
+					&& incomingLink.getElement() != null) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));

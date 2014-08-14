@@ -66,6 +66,7 @@ public class XorXorLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public XorXorLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}

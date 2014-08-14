@@ -66,6 +66,7 @@ public class ParParLinkEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public ParParLinkFigure() {
+			this.setLineWidth(3);
 			this.setLineStyle(Graphics.LINE_DASH);
 
 		}
