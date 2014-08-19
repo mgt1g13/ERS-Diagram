@@ -83,8 +83,7 @@ public class AtomicitydecompositionNewDiagramFileWizard extends Wizard {
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(AtomicitydecompositionDiagramEditorUtil
-				.getUniqueFileName(filePath, fileName,
-						"atomicitydecomposition_diagram")); //$NON-NLS-1$
+				.getUniqueFileName(filePath, fileName, "ersd")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.AtomicitydecompositionNewDiagramFileWizard_RootSelectionPageName);

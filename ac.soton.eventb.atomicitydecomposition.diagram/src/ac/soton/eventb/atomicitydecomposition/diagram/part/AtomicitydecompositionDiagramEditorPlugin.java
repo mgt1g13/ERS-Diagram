@@ -29,6 +29,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.expressions.Atomicitydecom
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.ElementInitializers;
 import ac.soton.eventb.atomicitydecomposition.provider.AtomicitydecompositionItemProviderAdapterFactory;
 import ac.soton.eventb.emf.core.extension.coreextension.provider.CoreextensionItemProviderAdapterFactory;
+import ac.soton.eventb.emf.diagrams.provider.DiagramsItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -127,6 +128,7 @@ public class AtomicitydecompositionDiagramEditorPlugin extends AbstractUIPlugin 
 	 */
 	protected void fillItemProviderFactories(List<AdapterFactory> factories) {
 		factories.add(new AtomicitydecompositionItemProviderAdapterFactory());
+		factories.add(new DiagramsItemProviderAdapterFactory());
 		factories.add(new EcoreItemProviderAdapterFactory());
 		factories.add(new CoreItemProviderAdapterFactory());
 		factories.add(new MachineItemProviderAdapterFactory());

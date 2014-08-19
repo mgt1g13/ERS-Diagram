@@ -17,7 +17,7 @@ public class AtomicitydecompositionUriEditorInputTester extends PropertyTester {
 			return false;
 		}
 		URIEditorInput editorInput = (URIEditorInput) receiver;
-		return "atomicitydecomposition_diagram".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
+		return "ersd".equals(editorInput.getURI().fileExtension()); //$NON-NLS-1$
 	}
 
 }

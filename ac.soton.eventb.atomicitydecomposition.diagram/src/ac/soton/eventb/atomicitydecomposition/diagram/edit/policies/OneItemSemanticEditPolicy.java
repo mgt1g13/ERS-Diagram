@@ -83,8 +83,7 @@ public class OneItemSemanticEditPolicy extends
 				continue;
 			}
 			if (AtomicitydecompositionVisualIDRegistry
-					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID &&
-					incomingLink.getElement() != null) {
+					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));

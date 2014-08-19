@@ -103,7 +103,7 @@ public class AtomicitydecompositionCreationWizard extends Wizard implements
 	 */
 	public void addPages() {
 		diagramModelFilePage = new AtomicitydecompositionCreationWizardPage(
-				"DiagramModelFile", getSelection(), "atomicitydecomposition_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DiagramModelFile", getSelection(), "ersd"); //$NON-NLS-1$ //$NON-NLS-2$
 		diagramModelFilePage
 				.setTitle(Messages.AtomicitydecompositionCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
@@ -117,7 +117,7 @@ public class AtomicitydecompositionCreationWizard extends Wizard implements
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
 					fileName = fileName.substring(0, fileName.length()
-							- ".atomicitydecomposition_diagram".length()); //$NON-NLS-1$
+							- ".ersd".length()); //$NON-NLS-1$
 					setFileName(AtomicitydecompositionDiagramEditorUtil
 							.getUniqueFileName(getContainerFullPath(),
 									fileName, "atomicitydecomposition")); //$NON-NLS-1$
