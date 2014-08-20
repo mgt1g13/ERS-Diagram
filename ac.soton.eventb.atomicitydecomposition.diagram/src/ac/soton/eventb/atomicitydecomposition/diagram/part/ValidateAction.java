@@ -35,6 +35,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyDelegatingOperation;
 
+import ac.soton.eventb.atomicitydecomposition.Child;
+import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionMarkerNavigationProvider;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionValidationProvider;
 
@@ -221,7 +223,26 @@ public class ValidateAction extends Action {
 						EMFCoreUtil.getQualifiedName(element, true),
 						nextDiagnostic.getMessage(),
 						diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+			
+				if(element.eContainer() instanceof FlowDiagram){
+					List<Child> refChild = new ArrayList<Child>();
+					for(Child ch : ((FlowDiagram) element.eContainer()).getRefine()){
+						if(ch.isRef())
+							refChild.add(ch);
+					}
+					if(refChild.size() > 1)
+						addMarker(
+								diagramEditPart.getViewer(),
+								target,
+								view.eResource().getURIFragment(view),
+								EMFCoreUtil.getQualifiedName(element.eContainer(), true),
+								"Only one child can have ref set to true",
+								diagnosticToStatusSeverity(nextDiagnostic.getSeverity()));
+					
+				}
 			}
+			
+			
 		}
 	}
 

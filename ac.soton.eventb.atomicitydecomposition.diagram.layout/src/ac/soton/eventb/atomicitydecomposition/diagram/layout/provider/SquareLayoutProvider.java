@@ -83,7 +83,8 @@ public class SquareLayoutProvider extends org.eclipse.gmf.runtime.diagram.ui.pro
 				ListIterator li = lnodes.listIterator();
 				while (li.hasNext()) {
 					ILayoutNode lnode = (ILayoutNode)li.next();
-					
+					if(lnode.getNode().getElement().eContainer() == null)
+						continue;
 					object2node.put(lnode.getNode().getElement(), lnode);
 					object2offset.put(lnode.getNode().getElement(), (getTreeWidth(lnode.getNode().getElement()) + 1)/2);
 					if(lnode.getNode().getElement().eContainer().eContainer() == null || lnode.getNode().getElement().eContainer().eContainer() instanceof Machine)

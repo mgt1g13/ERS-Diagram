@@ -213,8 +213,7 @@ public class AtomicitydecompositionVisualIDRegistry {
 				return Leaf2EditPart.VISUAL_ID;
 			}
 			if (AtomicitydecompositionPackage.eINSTANCE.getFlowDiagram()
-					.isSuperTypeOf(domainElement.eClass())
-					&& isFlowDiagram_2011((FlowDiagram) domainElement)) {
+					.isSuperTypeOf(domainElement.eClass())) {
 				return FlowDiagram2EditPart.VISUAL_ID;
 			}
 			break;
@@ -445,7 +444,7 @@ public class AtomicitydecompositionVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static boolean isFlowDiagram_2011(FlowDiagram domainElement) {
+	private static boolean isFlowDiagram_4015(FlowDiagram domainElement) {
 		Object result = AtomicitydecompositionOCLFactory.getExpression(2,
 				AtomicitydecompositionPackage.eINSTANCE.getFlowDiagram(), null)
 				.evaluate(domainElement);
@@ -455,18 +454,8 @@ public class AtomicitydecompositionVisualIDRegistry {
 	/**
 	 * @generated
 	 */
-	private static boolean isFlowDiagram_4015(FlowDiagram domainElement) {
-		Object result = AtomicitydecompositionOCLFactory.getExpression(3,
-				AtomicitydecompositionPackage.eINSTANCE.getFlowDiagram(), null)
-				.evaluate(domainElement);
-		return result instanceof Boolean && ((Boolean) result).booleanValue();
-	}
-
-	/**
-	 * @generated
-	 */
 	private static boolean isXor_4016(Xor domainElement) {
-		Object result = AtomicitydecompositionOCLFactory.getExpression(4,
+		Object result = AtomicitydecompositionOCLFactory.getExpression(3,
 				AtomicitydecompositionPackage.eINSTANCE.getXor(), null)
 				.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
@@ -476,7 +465,7 @@ public class AtomicitydecompositionVisualIDRegistry {
 	 * @generated
 	 */
 	private static boolean isOne_4017(One domainElement) {
-		Object result = AtomicitydecompositionOCLFactory.getExpression(5,
+		Object result = AtomicitydecompositionOCLFactory.getExpression(4,
 				AtomicitydecompositionPackage.eINSTANCE.getOne(), null)
 				.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
