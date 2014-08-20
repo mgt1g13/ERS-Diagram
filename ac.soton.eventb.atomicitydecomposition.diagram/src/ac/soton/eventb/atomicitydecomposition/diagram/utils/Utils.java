@@ -113,30 +113,30 @@ public class Utils {
 				}
 			}
 		}
-		else if (ch instanceof All){
+		else if (ch instanceof All && ((All)ch).getNewParameter() != null){
 			All all = (All) ch;
 			if(all.getNewParameter().getInputExpression().isEmpty())
 				parameters.add(all.getNewParameter().getName() + ": " + all.getNewParameter().getType());
 			else
 				parameters.add(all.getNewParameter().getName() + ": " + all.getNewParameter().getInputExpression());
 		}
-		else if (ch instanceof Some){
+		else if (ch instanceof Some && ((Some)ch).getNewParameter() != null){
 			Some some = (Some) ch;
-			if(some.getNewParameter().getInputExpression().isEmpty())
+			if(some.getNewParameter() != null && some.getNewParameter().getInputExpression().isEmpty())
 				parameters.add(some.getNewParameter().getName() + ": " + some.getNewParameter().getType());
 			else
 				parameters.add(some.getNewParameter().getName() + ": " + some.getNewParameter().getInputExpression());
 		}
-		else if (ch instanceof One){
+		else if (ch instanceof One && ((One)ch).getNewParameter() != null){
 			One one = (One) ch;
-			if(one.getNewParameter().getInputExpression().isEmpty())
+			if(one.getNewParameter() != null && one.getNewParameter().getInputExpression().isEmpty())
 				parameters.add(one.getNewParameter().getName() + ": " + one.getNewParameter().getType());
 			else
 				parameters.add(one.getNewParameter().getName() + ": " + one.getNewParameter().getInputExpression());
 		}
-		else if (ch instanceof Par){
+		else if (ch instanceof Par && ((Par)ch).getNewParameter() != null){
 			Par par = (Par) ch;
-			if(par.getNewParameter().getInputExpression().isEmpty())
+			if(par.getNewParameter() != null && par.getNewParameter().getInputExpression().isEmpty())
 				parameters.add(par.getNewParameter().getName() + ": " + par.getNewParameter().getType());
 			else
 				parameters.add(par.getNewParameter().getName() + ": " + par.getNewParameter().getInputExpression());

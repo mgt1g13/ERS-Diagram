@@ -1469,6 +1469,8 @@ public class AtomicitydecompositionDiagramUpdater {
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_Xor_XorLink_4009(
 			Xor source) {
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
+		if(source == null)
+			return result;
 		for (Iterator<?> destinations = source.getXorLink().iterator(); destinations
 				.hasNext();) {
 			Leaf destination = (Leaf) destinations.next();
