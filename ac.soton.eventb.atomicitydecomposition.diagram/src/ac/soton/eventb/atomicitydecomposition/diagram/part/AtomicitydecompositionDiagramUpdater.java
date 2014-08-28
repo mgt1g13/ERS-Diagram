@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
+import org.eventb.emf.core.machine.Machine;
 
 import ac.soton.eventb.atomicitydecomposition.All;
 import ac.soton.eventb.atomicitydecomposition.And;
@@ -143,8 +144,11 @@ public class AtomicitydecompositionDiagramUpdater {
 		Resource resource = modelElement.eResource();
 		for (Iterator<EObject> it = getPhantomNodesIterator(resource); it
 				.hasNext();) {
+			
 			EObject childElement = it.next();
-			if (childElement == modelElement) {
+			
+			if (childElement == modelElement || (childElement instanceof FlowDiagram && childElement.eContainer() instanceof Machine) ||
+					!isDescendantOf(childElement, modelElement)){
 				continue;
 			}
 			if (alreadyAdded.contains(childElement))
@@ -222,6 +226,17 @@ public class AtomicitydecompositionDiagramUpdater {
 		return result;
 	}
 
+	private static boolean isDescendantOf(EObject child, EObject parent){
+		EObject temp = child.eContainer();
+		while(temp != null && !(temp instanceof Machine)){
+			if(temp.equals(parent)) return true;
+			temp = temp.eContainer();
+		}
+			
+		return false;
+	}
+	
+	
 	/**
 	 * @generated
 	 */
