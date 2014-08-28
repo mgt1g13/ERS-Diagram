@@ -1,5 +1,6 @@
 package ac.soton.eventb.atomicitydecomposition.diagram.part;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -69,6 +70,7 @@ public class AtomicitydecompositionPaletteFactory {
 		paletteContainer.add(createSomeLink11CreationTool());
 		paletteContainer.add(createXorLink12CreationTool());
 		paletteContainer.add(createDecomposeLink13CreationTool());
+		paletteContainer.add(createCreateLink14CreationTool());
 		return paletteContainer;
 	}
 
@@ -236,15 +238,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAllLink1CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.AllLink1CreationTool_title,
-				Messages.AllLink1CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.AllAllLink_4004));
+		ToolEntry entry = new ToolEntry(Messages.AllLink1CreationTool_title,
+				Messages.AllLink1CreationTool_desc, null, null) {
+		};
 		entry.setId("createAllLink1CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.AllAllLink_4004));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -252,15 +249,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAndLink2CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.AndLink2CreationTool_title,
-				Messages.AndLink2CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.AndAndLink_4002));
+		ToolEntry entry = new ToolEntry(Messages.AndLink2CreationTool_title,
+				Messages.AndLink2CreationTool_desc, null, null) {
+		};
 		entry.setId("createAndLink2CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.AndAndLink_4002));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -268,15 +260,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLoopLink3CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.LoopLink3CreationTool_title,
-				Messages.LoopLink3CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.LoopLoopLink_4003));
+		ToolEntry entry = new ToolEntry(Messages.LoopLink3CreationTool_title,
+				Messages.LoopLink3CreationTool_desc, null, null) {
+		};
 		entry.setId("createLoopLink3CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.LoopLoopLink_4003));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -332,15 +319,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOneLink7CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.OneLink7CreationTool_title,
-				Messages.OneLink7CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.OneOneLink_4010));
+		ToolEntry entry = new ToolEntry(Messages.OneLink7CreationTool_title,
+				Messages.OneLink7CreationTool_desc, null, null) {
+		};
 		entry.setId("createOneLink7CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.OneOneLink_4010));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -348,15 +330,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOrLink8CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.OrLink8CreationTool_title,
-				Messages.OrLink8CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.OrOrLink_4008));
+		ToolEntry entry = new ToolEntry(Messages.OrLink8CreationTool_title,
+				Messages.OrLink8CreationTool_desc, null, null) {
+		};
 		entry.setId("createOrLink8CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.OrOrLink_4008));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -364,15 +341,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createParLink9CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.ParLink9CreationTool_title,
-				Messages.ParLink9CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.ParParLink_4012));
+		ToolEntry entry = new ToolEntry(Messages.ParLink9CreationTool_title,
+				Messages.ParLink9CreationTool_desc, null, null) {
+		};
 		entry.setId("createParLink9CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.ParParLink_4012));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -380,15 +352,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createRefine10CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.Refine10CreationTool_title,
-				Messages.Refine10CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014));
+		ToolEntry entry = new ToolEntry(Messages.Refine10CreationTool_title,
+				Messages.Refine10CreationTool_desc, null, null) {
+		};
 		entry.setId("createRefine10CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -396,15 +363,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSomeLink11CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.SomeLink11CreationTool_title,
-				Messages.SomeLink11CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.SomeSomeLink_4006));
+		ToolEntry entry = new ToolEntry(Messages.SomeLink11CreationTool_title,
+				Messages.SomeLink11CreationTool_desc, null, null) {
+		};
 		entry.setId("createSomeLink11CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.SomeSomeLink_4006));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -412,15 +374,10 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXorLink12CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
-				Messages.XorLink12CreationTool_title,
-				Messages.XorLink12CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.XorXorLink_4009));
+		ToolEntry entry = new ToolEntry(Messages.XorLink12CreationTool_title,
+				Messages.XorLink12CreationTool_desc, null, null) {
+		};
 		entry.setId("createXorLink12CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.XorXorLink_4009));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -436,6 +393,30 @@ public class AtomicitydecompositionPaletteFactory {
 		entry.setId("createDecomposeLink13CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(AtomicitydecompositionElementTypes
 				.getImageDescriptor(AtomicitydecompositionElementTypes.MultiFlowDecompose_4013));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCreateLink14CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(9);
+		types.add(AtomicitydecompositionElementTypes.AndAndLink_4002);
+		types.add(AtomicitydecompositionElementTypes.LoopLoopLink_4003);
+		types.add(AtomicitydecompositionElementTypes.AllAllLink_4004);
+		types.add(AtomicitydecompositionElementTypes.SomeSomeLink_4006);
+		types.add(AtomicitydecompositionElementTypes.OrOrLink_4008);
+		types.add(AtomicitydecompositionElementTypes.XorXorLink_4009);
+		types.add(AtomicitydecompositionElementTypes.OneOneLink_4010);
+		types.add(AtomicitydecompositionElementTypes.ParParLink_4012);
+		types.add(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.CreateLink14CreationTool_title,
+				Messages.CreateLink14CreationTool_desc, types);
+		entry.setId("createCreateLink14CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(AtomicitydecompositionElementTypes
+				.getImageDescriptor(AtomicitydecompositionElementTypes.AndAndLink_4002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

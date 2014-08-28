@@ -81,7 +81,8 @@ public class XorItemSemanticEditPolicy extends
 			}
 			if (AtomicitydecompositionVisualIDRegistry
 					.getVisualID(incomingLink) == FlowDiagram3EditPart.VISUAL_ID) {
-				if(incomingLink.getElement() == null) continue;
+				if (incomingLink.getElement() == null)
+					continue;
 				DestroyElementRequest r = new DestroyElementRequest(
 						incomingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));

@@ -144,11 +144,13 @@ public class AtomicitydecompositionDiagramUpdater {
 		Resource resource = modelElement.eResource();
 		for (Iterator<EObject> it = getPhantomNodesIterator(resource); it
 				.hasNext();) {
-			
+
 			EObject childElement = it.next();
-			
-			if (childElement == modelElement || (childElement instanceof FlowDiagram && childElement.eContainer() instanceof Machine) ||
-					!isDescendantOf(childElement, modelElement)){
+
+			if (childElement == modelElement
+					|| (childElement instanceof FlowDiagram && childElement
+							.eContainer() instanceof Machine)
+					|| !isDescendantOf(childElement, modelElement)) {
 				continue;
 			}
 			if (alreadyAdded.contains(childElement))
@@ -226,17 +228,17 @@ public class AtomicitydecompositionDiagramUpdater {
 		return result;
 	}
 
-	private static boolean isDescendantOf(EObject child, EObject parent){
+	private static boolean isDescendantOf(EObject child, EObject parent) {
 		EObject temp = child.eContainer();
-		while(temp != null && !(temp instanceof Machine)){
-			if(temp.equals(parent)) return true;
+		while (temp != null && !(temp instanceof Machine)) {
+			if (temp.equals(parent))
+				return true;
 			temp = temp.eContainer();
 		}
-			
+
 		return false;
 	}
-	
-	
+
 	/**
 	 * @generated
 	 */
@@ -1484,7 +1486,7 @@ public class AtomicitydecompositionDiagramUpdater {
 	private static Collection<AtomicitydecompositionLinkDescriptor> getOutgoingFeatureModelFacetLinks_Xor_XorLink_4009(
 			Xor source) {
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
-		if(source == null)
+		if (source == null)
 			return result;
 		for (Iterator<?> destinations = source.getXorLink().iterator(); destinations
 				.hasNext();) {

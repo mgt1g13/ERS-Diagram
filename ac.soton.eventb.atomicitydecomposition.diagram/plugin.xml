@@ -66,6 +66,22 @@
          </action>
       </objectContribution>
    </extension>
+   
+   <extension point="org.eclipse.ui.popupMenus" id="refine-leaf">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="ac.soton.eventb.atomicitydecomposition.diagram.Refine"
+            objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart">
+         <action
+               label="Refine"
+               class="ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.custom.AddLeafRefineHandler"
+               menubarPath="additions"
+               enablesFor="1"
+               id="ac.soton.eventb.atomicitydecomposition.diagram.Refine">
+         </action>
+      </objectContribution>
+   </extension>
+   
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
