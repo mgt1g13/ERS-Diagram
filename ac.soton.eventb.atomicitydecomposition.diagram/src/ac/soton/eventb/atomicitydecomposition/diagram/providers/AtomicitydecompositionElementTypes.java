@@ -35,6 +35,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneNewParameter
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Par2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeEditPart;
@@ -191,6 +192,11 @@ public class AtomicitydecompositionElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Par_4018 = getElementType("ac.soton.eventb.atomicitydecomposition.diagram.Par_4018"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
 		return elementTypeImages.getImageDescriptor(element);
 	}
@@ -314,6 +320,9 @@ public class AtomicitydecompositionElementTypes {
 
 			elements.put(One_4017,
 					AtomicitydecompositionPackage.eINSTANCE.getOne());
+
+			elements.put(Par_4018,
+					AtomicitydecompositionPackage.eINSTANCE.getPar());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -359,6 +368,7 @@ public class AtomicitydecompositionElementTypes {
 			KNOWN_ELEMENT_TYPES.add(FlowDiagram_4015);
 			KNOWN_ELEMENT_TYPES.add(Xor_4016);
 			KNOWN_ELEMENT_TYPES.add(One_4017);
+			KNOWN_ELEMENT_TYPES.add(Par_4018);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -424,6 +434,8 @@ public class AtomicitydecompositionElementTypes {
 			return Xor_4016;
 		case One2EditPart.VISUAL_ID:
 			return One_4017;
+		case Par2EditPart.VISUAL_ID:
+			return Par_4018;
 		}
 		return null;
 	}

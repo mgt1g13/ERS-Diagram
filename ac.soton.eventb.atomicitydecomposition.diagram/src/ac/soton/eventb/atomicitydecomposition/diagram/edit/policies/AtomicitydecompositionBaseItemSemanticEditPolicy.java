@@ -572,6 +572,13 @@ public class AtomicitydecompositionBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
+		public boolean canCreatePar_4018(FlowDiagram source, Leaf target) {
+			return canExistPar_4018(null, source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public boolean canExistAndAndLink_4002(And source, Leaf target) {
 			return true;
 		}
@@ -685,6 +692,14 @@ public class AtomicitydecompositionBaseItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		public boolean canExistOne_4017(One linkInstance, FlowDiagram source,
+				Leaf target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public boolean canExistPar_4018(Par linkInstance, FlowDiagram source,
 				Leaf target) {
 			return true;
 		}

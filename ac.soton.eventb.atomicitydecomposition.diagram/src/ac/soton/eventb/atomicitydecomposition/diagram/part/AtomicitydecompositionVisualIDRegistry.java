@@ -11,6 +11,7 @@ import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionPackage;
 import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
 import ac.soton.eventb.atomicitydecomposition.Leaf;
 import ac.soton.eventb.atomicitydecomposition.One;
+import ac.soton.eventb.atomicitydecomposition.Par;
 import ac.soton.eventb.atomicitydecomposition.Xor;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllAllLinkExternalLabelEditPart;
@@ -45,6 +46,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkExter
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkExternalLabelEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Par2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkExternalLabelEditPart;
@@ -408,6 +410,11 @@ public class AtomicitydecompositionVisualIDRegistry {
 				&& isOne_4017((One) domainElement)) {
 			return One2EditPart.VISUAL_ID;
 		}
+		if (AtomicitydecompositionPackage.eINSTANCE.getPar().isSuperTypeOf(
+				domainElement.eClass())
+				&& isPar_4018((Par) domainElement)) {
+			return Par2EditPart.VISUAL_ID;
+		}
 		return -1;
 	}
 
@@ -467,6 +474,16 @@ public class AtomicitydecompositionVisualIDRegistry {
 	private static boolean isOne_4017(One domainElement) {
 		Object result = AtomicitydecompositionOCLFactory.getExpression(4,
 				AtomicitydecompositionPackage.eINSTANCE.getOne(), null)
+				.evaluate(domainElement);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean isPar_4018(Par domainElement) {
+		Object result = AtomicitydecompositionOCLFactory.getExpression(5,
+				AtomicitydecompositionPackage.eINSTANCE.getPar(), null)
 				.evaluate(domainElement);
 		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}

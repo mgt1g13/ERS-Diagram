@@ -169,6 +169,9 @@ public class AtomicitydecompositionEditPartFactory implements EditPartFactory {
 			case One2EditPart.VISUAL_ID:
 				return new One2EditPart(view);
 
+			case Par2EditPart.VISUAL_ID:
+				return new Par2EditPart(view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

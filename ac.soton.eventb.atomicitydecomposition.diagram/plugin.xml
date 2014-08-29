@@ -67,21 +67,21 @@
       </objectContribution>
    </extension>
    
-   <extension point="org.eclipse.ui.popupMenus" id="refine-leaf">
-      <?gmfgen generated="true"?>
+      <extension point="org.eclipse.ui.popupMenus" id="refine-leaf">
+      <?gmfgen generated="false"?>
       <objectContribution
             id="ac.soton.eventb.atomicitydecomposition.diagram.Refine"
             objectClass="org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart">
          <action
                label="Refine"
-               class="ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.custom.AddLeafRefineHandler"
+               class="ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.custom.LeafRefineHandler"
                menubarPath="additions"
                enablesFor="1"
                id="ac.soton.eventb.atomicitydecomposition.diagram.Refine">
          </action>
       </objectContribution>
    </extension>
-   
+     
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
       <?gmfgen generated="true"?>
@@ -234,7 +234,7 @@
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Atomicitydecomposition"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017,4018"/>
       </viewProvider>
    </extension>
 
@@ -249,7 +249,7 @@
             <method name="getType()" value="2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017"/>
+            <method name="getType()" value="4002,4003,4004,4005,4006,4007,4008,4009,4010,4011,4012,4013,4014,4015,4016,4017,4018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5001,5002,5004,5005,5006,5007,5008,5009,5010,5003"/>
@@ -559,6 +559,15 @@
             <param name="semanticHint" value="4017"/>
          </specializationType>
       </metamodel>
+      <metamodel nsURI="http://soton.ac.uk/models/eventb/atomicitydecomposition">
+         <specializationType
+               id="ac.soton.eventb.atomicitydecomposition.diagram.Par_4018"
+               name="%metatype.name.Par_4018"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="ac.soton.eventb.atomicitydecomposition.diagram.Par_2009"/>
+            <param name="semanticHint" value="4018"/>
+         </specializationType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
@@ -599,6 +608,7 @@
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.FlowDiagram_4015"/>
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.Xor_4016"/>
          <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.One_4017"/>
+         <elementType ref="ac.soton.eventb.atomicitydecomposition.diagram.Par_4018"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

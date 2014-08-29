@@ -763,6 +763,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Par_4018_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Par_4018_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**

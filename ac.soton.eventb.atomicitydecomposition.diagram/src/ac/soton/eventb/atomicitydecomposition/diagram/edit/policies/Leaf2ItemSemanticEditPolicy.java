@@ -40,8 +40,10 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneOneLinkRe
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OrOrLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OrOrLinkReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Par2CreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParParLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParParLinkReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.SomeSomeLinkCreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.SomeSomeLinkReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Xor2CreateCommand;
@@ -57,6 +59,7 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.MultiFlowDecomp
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.One2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneOneLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrOrLinkEditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Par2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParParLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeSomeLinkEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
@@ -424,6 +427,9 @@ public class Leaf2ItemSemanticEditPolicy extends
 		if (AtomicitydecompositionElementTypes.One_4017 == req.getElementType()) {
 			return null;
 		}
+		if (AtomicitydecompositionElementTypes.Par_4018 == req.getElementType()) {
+			return null;
+		}
 		return null;
 	}
 
@@ -494,6 +500,10 @@ public class Leaf2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new One2CreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.Par_4018 == req.getElementType()) {
+			return getGEFWrapper(new Par2CreateCommand(req, req.getSource(),
+					req.getTarget()));
+		}
 		return null;
 	}
 
@@ -512,6 +522,8 @@ public class Leaf2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new XorReorientCommand(req));
 		case One2EditPart.VISUAL_ID:
 			return getGEFWrapper(new OneReorientCommand(req));
+		case Par2EditPart.VISUAL_ID:
+			return getGEFWrapper(new ParReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

@@ -30,7 +30,7 @@ public class AtomicitydecompositionPaletteFactory {
 
 	/**
 	 * Creates "Objects" palette tool group
-	 * @generated
+	 * @generated NOT
 	 */
 	private PaletteContainer createObjects1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
@@ -45,31 +45,31 @@ public class AtomicitydecompositionPaletteFactory {
 		paletteContainer.add(createPar7CreationTool());
 		paletteContainer.add(createSome8CreationTool());
 		paletteContainer.add(createXor9CreationTool());
-		paletteContainer.add(createFlowDiagram10CreationTool());
+		//		paletteContainer.add(createFlowDiagram10CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * Creates "Connections" palette tool group
-	 * @generated
+	 * @generated NOT
 	 */
 	private PaletteContainer createConnections2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Connections2Group_title);
 		paletteContainer.setId("createConnections2Group"); //$NON-NLS-1$
-		paletteContainer.add(createAllLink1CreationTool());
-		paletteContainer.add(createAndLink2CreationTool());
-		paletteContainer.add(createLoopLink3CreationTool());
-		paletteContainer.add(createNewParameter4CreationTool());
-		paletteContainer.add(createNewParameter5CreationTool());
-		paletteContainer.add(createNewParameter6CreationTool());
-		paletteContainer.add(createOneLink7CreationTool());
-		paletteContainer.add(createOrLink8CreationTool());
-		paletteContainer.add(createParLink9CreationTool());
-		paletteContainer.add(createRefine10CreationTool());
-		paletteContainer.add(createSomeLink11CreationTool());
-		paletteContainer.add(createXorLink12CreationTool());
-		paletteContainer.add(createDecomposeLink13CreationTool());
+		//		paletteContainer.add(createAllLink1CreationTool());
+		//		paletteContainer.add(createAndLink2CreationTool());
+		//		paletteContainer.add(createLoopLink3CreationTool());
+		//		paletteContainer.add(createNewParameter4CreationTool());
+		//		paletteContainer.add(createNewParameter5CreationTool());
+		//		paletteContainer.add(createNewParameter6CreationTool());
+		//		paletteContainer.add(createOneLink7CreationTool());
+		//		paletteContainer.add(createOrLink8CreationTool());
+		//		paletteContainer.add(createParLink9CreationTool());
+		//		paletteContainer.add(createRefine10CreationTool());
+		//		paletteContainer.add(createSomeLink11CreationTool());
+		//		paletteContainer.add(createXorLink12CreationTool());
+		//		paletteContainer.add(createDecomposeLink13CreationTool());
 		paletteContainer.add(createCreateLink14CreationTool());
 		return paletteContainer;
 	}
@@ -222,15 +222,11 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFlowDiagram10CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		ToolEntry entry = new ToolEntry(
 				Messages.FlowDiagram10CreationTool_title,
-				Messages.FlowDiagram10CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.FlowDiagram_2011));
+				Messages.FlowDiagram10CreationTool_desc, null, null) {
+		};
 		entry.setId("createFlowDiagram10CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.FlowDiagram_2011));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -303,15 +299,11 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createNewParameter6CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
+		ToolEntry entry = new ToolEntry(
 				Messages.NewParameter6CreationTool_title,
-				Messages.NewParameter6CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.OneNewParameter_4011));
+				Messages.NewParameter6CreationTool_desc, null, null) {
+		};
 		entry.setId("createNewParameter6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.OneNewParameter_4011));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -385,15 +377,11 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDecomposeLink13CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
+		ToolEntry entry = new ToolEntry(
 				Messages.DecomposeLink13CreationTool_title,
-				Messages.DecomposeLink13CreationTool_desc,
-				Collections
-						.singletonList(AtomicitydecompositionElementTypes.MultiFlowDecompose_4013));
+				Messages.DecomposeLink13CreationTool_desc, null, null) {
+		};
 		entry.setId("createDecomposeLink13CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(AtomicitydecompositionElementTypes
-				.getImageDescriptor(AtomicitydecompositionElementTypes.MultiFlowDecompose_4013));
-		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

@@ -28,11 +28,14 @@ import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDec
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.MultiFlowDecomposeReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.One2CreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.OneReorientCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Par2CreateCommand;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.ParReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.Xor2CreateCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.commands.XorReorientCommand;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramRefineEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.MultiFlowDecomposeEditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.One2EditPart;
+import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Par2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Xor2EditPart;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionVisualIDRegistry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
@@ -123,6 +126,14 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 				continue;
 			}
+			if (AtomicitydecompositionVisualIDRegistry
+					.getVisualID(outgoingLink) == Par2EditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
 		}
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
@@ -168,6 +179,10 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new One2CreateCommand(req, req.getSource(),
 					req.getTarget()));
 		}
+		if (AtomicitydecompositionElementTypes.Par_4018 == req.getElementType()) {
+			return getGEFWrapper(new Par2CreateCommand(req, req.getSource(),
+					req.getTarget()));
+		}
 		return null;
 	}
 
@@ -191,6 +206,9 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 		if (AtomicitydecompositionElementTypes.One_4017 == req.getElementType()) {
 			return null;
 		}
+		if (AtomicitydecompositionElementTypes.Par_4018 == req.getElementType()) {
+			return null;
+		}
 		return null;
 	}
 
@@ -207,6 +225,8 @@ public class FlowDiagram2ItemSemanticEditPolicy extends
 			return getGEFWrapper(new XorReorientCommand(req));
 		case One2EditPart.VISUAL_ID:
 			return getGEFWrapper(new OneReorientCommand(req));
+		case Par2EditPart.VISUAL_ID:
+			return getGEFWrapper(new ParReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}
