@@ -46,3 +46,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.validation;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: ac.soton.eventb.emf.core.extension.coreextension.provider,
+ ac.soton.eventb.emf.diagrams.provider,
+ ac.soton.eventb.emf.diagrams.sheet,
+ ac.soton.eventb.emf.diagrams.util.custom,
+ org.eventb.emf.core.context.provider,
+ org.eventb.emf.core.machine.provider,
+ org.eventb.emf.core.provider
