@@ -5,43 +5,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eventb.emf.core.machine.Machine;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 
 import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionFactory;
-import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionPackage;
 import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
 import ac.soton.eventb.atomicitydecomposition.Leaf;
 import ac.soton.eventb.atomicitydecomposition.TypedParameterExpression;
-import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramEditPart;
-import ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart;
-import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionDiagramEditorPlugin;
-import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionDiagramEditorUtil;
-import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionNewDiagramFileWizard;
-import ac.soton.eventb.atomicitydecomposition.diagram.part.Messages;
 
 /**
  * @generated NOT
@@ -76,8 +56,9 @@ public class LeafRefineHandler implements
 		EditPart leaf = (EditPart) ((IStructuredSelection) selection)
 				.getFirstElement();
 		
-		if(leaf.getAdapter(Leaf.class) == null)
+		if(leaf.getAdapter(Leaf.class) == null){
 			return;
+		}
 		selectedLeaf = (Leaf) leaf.getAdapter(Leaf.class);
 		
 		action.setEnabled(true);
@@ -103,7 +84,6 @@ public class LeafRefineHandler implements
 				newFlowDiagram.getParameters().addAll(getAbstractParametersCopies());
 				
 				try {
-
 					selectedLeaf.getDecompose().add(newFlowDiagram);
 					selectedLeaf.eResource().save(Collections.EMPTY_MAP);
 				} catch (IOException e) {

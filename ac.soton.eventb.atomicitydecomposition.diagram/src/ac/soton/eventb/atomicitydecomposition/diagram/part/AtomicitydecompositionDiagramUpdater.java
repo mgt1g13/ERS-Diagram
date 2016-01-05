@@ -1107,26 +1107,30 @@ public class AtomicitydecompositionDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	private static Collection<AtomicitydecompositionLinkDescriptor> getContainedTypeModelFacetLinks_Par_4018(
 			FlowDiagram container) {
 		LinkedList<AtomicitydecompositionLinkDescriptor> result = new LinkedList<AtomicitydecompositionLinkDescriptor>();
-		for (Iterator<?> links = container.getRefine().iterator(); links
-				.hasNext();) {
-			EObject linkObject = (EObject) links.next();
-			if (false == linkObject instanceof Par) {
-				continue;
+		try{
+			for (Iterator<?> links = container.getRefine().iterator(); links
+					.hasNext();) {
+				EObject linkObject = (EObject) links.next();
+				if (false == linkObject instanceof Par) {
+					continue;
+				}
+				Par link = (Par) linkObject;
+				if (Par2EditPart.VISUAL_ID != AtomicitydecompositionVisualIDRegistry
+						.getLinkWithClassVisualID(link)) {
+					continue;
+				}
+				Leaf dst = link.getParLink();
+				result.add(new AtomicitydecompositionLinkDescriptor(container, dst,
+						link, AtomicitydecompositionElementTypes.Par_4018,
+						Par2EditPart.VISUAL_ID));
 			}
-			Par link = (Par) linkObject;
-			if (Par2EditPart.VISUAL_ID != AtomicitydecompositionVisualIDRegistry
-					.getLinkWithClassVisualID(link)) {
-				continue;
-			}
-			Leaf dst = link.getParLink();
-			result.add(new AtomicitydecompositionLinkDescriptor(container, dst,
-					link, AtomicitydecompositionElementTypes.Par_4018,
-					Par2EditPart.VISUAL_ID));
+		}catch(Exception e){
+			;
 		}
 		return result;
 	}
