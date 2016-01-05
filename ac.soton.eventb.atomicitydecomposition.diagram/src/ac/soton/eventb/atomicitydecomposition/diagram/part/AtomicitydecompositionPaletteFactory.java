@@ -13,6 +13,8 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.tooling.runtime.part.DefaultLinkToolEntry;
+import org.eclipse.gmf.tooling.runtime.part.DefaultNodeToolEntry;
 import ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionElementTypes;
 
 /**
@@ -78,7 +80,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAll1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.All1CreationTool_title,
 				Messages.All1CreationTool_desc,
 				Collections
@@ -94,7 +96,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAnd2CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.And2CreationTool_title,
 				Messages.And2CreationTool_desc,
 				Collections
@@ -110,7 +112,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLeaf3CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Leaf3CreationTool_title,
 				Messages.Leaf3CreationTool_desc,
 				Collections
@@ -126,7 +128,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLoop4CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Loop4CreationTool_title,
 				Messages.Loop4CreationTool_desc,
 				Collections
@@ -142,7 +144,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOne5CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.One5CreationTool_title,
 				Messages.One5CreationTool_desc,
 				Collections
@@ -158,7 +160,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createOr6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Or6CreationTool_title,
 				Messages.Or6CreationTool_desc,
 				Collections
@@ -174,7 +176,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createPar7CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Par7CreationTool_title,
 				Messages.Par7CreationTool_desc,
 				Collections
@@ -190,7 +192,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSome8CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Some8CreationTool_title,
 				Messages.Some8CreationTool_desc,
 				Collections
@@ -206,7 +208,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createXor9CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(
+		DefaultNodeToolEntry entry = new DefaultNodeToolEntry(
 				Messages.Xor9CreationTool_title,
 				Messages.Xor9CreationTool_desc,
 				Collections
@@ -267,7 +269,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createNewParameter4CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				Messages.NewParameter4CreationTool_title,
 				Messages.NewParameter4CreationTool_desc,
 				Collections
@@ -283,7 +285,7 @@ public class AtomicitydecompositionPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createNewParameter5CreationTool() {
-		LinkToolEntry entry = new LinkToolEntry(
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				Messages.NewParameter5CreationTool_title,
 				Messages.NewParameter5CreationTool_desc,
 				Collections
@@ -399,7 +401,7 @@ public class AtomicitydecompositionPaletteFactory {
 		types.add(AtomicitydecompositionElementTypes.OneOneLink_4010);
 		types.add(AtomicitydecompositionElementTypes.ParParLink_4012);
 		types.add(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014);
-		LinkToolEntry entry = new LinkToolEntry(
+		DefaultLinkToolEntry entry = new DefaultLinkToolEntry(
 				Messages.CreateLink14CreationTool_title,
 				Messages.CreateLink14CreationTool_desc, types);
 		entry.setId("createCreateLink14CreationTool"); //$NON-NLS-1$
@@ -407,63 +409,5 @@ public class AtomicitydecompositionPaletteFactory {
 				.getImageDescriptor(AtomicitydecompositionElementTypes.AndAndLink_4002));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class NodeToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> elementTypes;
-
-		/**
-		 * @generated
-		 */
-		private NodeToolEntry(String title, String description,
-				List<IElementType> elementTypes) {
-			super(title, description, null, null);
-			this.elementTypes = elementTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class LinkToolEntry extends ToolEntry {
-
-		/**
-		 * @generated
-		 */
-		private final List<IElementType> relationshipTypes;
-
-		/**
-		 * @generated
-		 */
-		private LinkToolEntry(String title, String description,
-				List<IElementType> relationshipTypes) {
-			super(title, description, null, null);
-			this.relationshipTypes = relationshipTypes;
-		}
-
-		/**
-		 * @generated
-		 */
-		public Tool createTool() {
-			Tool tool = new UnspecifiedTypeConnectionTool(relationshipTypes);
-			tool.setProperties(getToolProperties());
-			return tool;
-		}
 	}
 }

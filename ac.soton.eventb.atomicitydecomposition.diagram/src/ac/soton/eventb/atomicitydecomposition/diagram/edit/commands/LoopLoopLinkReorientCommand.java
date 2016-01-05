@@ -112,8 +112,8 @@ public class LoopLoopLinkReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
-		getOldSource().setLoopLink(null);
-		getNewSource().setLoopLink(getOldTarget());
+		getOldSource().getLoopLink().remove(getOldTarget());
+		getNewSource().getLoopLink().add(getOldTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 
@@ -121,7 +121,8 @@ public class LoopLoopLinkReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
-		getOldSource().setLoopLink(getNewTarget());
+		getOldSource().getLoopLink().remove(getOldTarget());
+		getOldSource().getLoopLink().add(getNewTarget());
 		return CommandResult.newOKCommandResult(referenceOwner);
 	}
 

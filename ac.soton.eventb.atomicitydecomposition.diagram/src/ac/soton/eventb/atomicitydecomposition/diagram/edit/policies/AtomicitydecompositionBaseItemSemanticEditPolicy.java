@@ -356,7 +356,7 @@ public class AtomicitydecompositionBaseItemSemanticEditPolicy extends
 		 */
 		public boolean canCreateLoopLoopLink_4003(Loop source, Leaf target) {
 			if (source != null) {
-				if (source.getLoopLink() != null) {
+				if (source.getLoopLink().contains(target)) {
 					return false;
 				}
 				if (source == target) {
