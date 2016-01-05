@@ -43,6 +43,10 @@ import ac.soton.eventb.atomicitydecomposition.diagram.part.Atomicitydecompositio
 import ac.soton.eventb.atomicitydecomposition.diagram.part.AtomicitydecompositionNewDiagramFileWizard;
 import ac.soton.eventb.atomicitydecomposition.diagram.part.Messages;
 
+import ac.soton.eventb.atomicitydecomposition.All;
+import ac.soton.eventb.atomicitydecomposition.Some;
+import ac.soton.eventb.atomicitydecomposition.One;
+import ac.soton.eventb.atomicitydecomposition.Par;
 /**
  * @generated NOT
  */
@@ -121,17 +125,72 @@ public class LeafRefineHandler implements
 		EObject temp = selectedLeaf.eContainer();
 		while(temp != null && !(temp instanceof Machine)){
 			if(temp instanceof FlowDiagram){
-				for(TypedParameterExpression tp : ((FlowDiagram) temp).getParameters()){
+				//for(TypedParameterExpression tp : ((FlowDiagram) temp).getParameters()){
+				for(int i = ((FlowDiagram) temp).getParameters().size() -1; i >=0; i-- ){ //changed by Dana
+					TypedParameterExpression tp = ((FlowDiagram) temp).getParameters().get(i);
 					if(!retNames.contains(tp.getName())){
 						TypedParameterExpression newTp = AtomicitydecompositionFactory.eINSTANCE.createTypedParameterExpression();
 						newTp.setName(tp.getName());
 						newTp.setInputExpression(tp.getInputExpression());
 						newTp.setType(tp.getType());
-						ret.add(newTp);
+						ret.add(0, newTp);//changed by Dana at 0 index
 						retNames.add(newTp.getName());
 					}
+					
 				}
 			}
+				//------------------------------------------------
+				//test to get copy the replicator parameters
+				else if(temp instanceof All){
+					TypedParameterExpression tp = ((All) temp).getNewParameter();
+						if(!retNames.contains(tp.getName())){
+							TypedParameterExpression newTp = AtomicitydecompositionFactory.eINSTANCE.createTypedParameterExpression();
+							newTp.setName(tp.getName());
+							newTp.setInputExpression(tp.getInputExpression());
+							newTp.setType(tp.getType());
+							ret.add(newTp);
+							retNames.add(newTp.getName());
+						
+						}
+				}
+			
+				else if(temp instanceof Some){
+					TypedParameterExpression tp = ((Some) temp).getNewParameter();
+						if(!retNames.contains(tp.getName())){
+							TypedParameterExpression newTp = AtomicitydecompositionFactory.eINSTANCE.createTypedParameterExpression();
+							newTp.setName(tp.getName());
+							newTp.setInputExpression(tp.getInputExpression());
+							newTp.setType(tp.getType());
+							ret.add(newTp);
+							retNames.add(newTp.getName());
+						
+						}
+				}
+				else if(temp instanceof One){
+					TypedParameterExpression tp = ((One) temp).getNewParameter();
+						if(!retNames.contains(tp.getName())){
+							TypedParameterExpression newTp = AtomicitydecompositionFactory.eINSTANCE.createTypedParameterExpression();
+							newTp.setName(tp.getName());
+							newTp.setInputExpression(tp.getInputExpression());
+							newTp.setType(tp.getType());
+							ret.add(newTp);
+							retNames.add(newTp.getName());
+						
+						}
+				}
+				else if(temp instanceof Par){
+					TypedParameterExpression tp = ((Par) temp).getNewParameter();
+						if(!retNames.contains(tp.getName())){
+							TypedParameterExpression newTp = AtomicitydecompositionFactory.eINSTANCE.createTypedParameterExpression();
+							newTp.setName(tp.getName());
+							newTp.setInputExpression(tp.getInputExpression());
+							newTp.setType(tp.getType());
+							ret.add(newTp);
+							retNames.add(newTp.getName());
+						
+						}
+				}
+			//------------------------------------------------
 			temp = temp.eContainer();
 		}
 
