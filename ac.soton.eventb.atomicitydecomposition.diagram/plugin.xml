@@ -170,6 +170,9 @@
       <propertyContributor
             contributorId="ac.soton.eventb.atomicitydecomposition.diagram"
             labelProvider="ac.soton.eventb.atomicitydecomposition.diagram.sheet.AtomicitydecompositionSheetLabelProvider">
+         <propertyCategory
+               category="custom_domain">
+         </propertyCategory>
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -263,22 +266,67 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.AtomicitydecompositionModelingAssistantProvider">
+      <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfFlowDiagramEditPart">
          <Priority name="Lowest"/>
          <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagramEditPart" id="FlowDiagram_1000"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart" id="Leaf_2001"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AndEditPart" id="And_2002"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopEditPart" id="Loop_2003"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllEditPart" id="All_2004"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeEditPart" id="Some_2005"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrEditPart" id="Or_2006"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart" id="Xor_2007"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneEditPart" id="One_2008"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParEditPart" id="Par_2009"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Leaf2EditPart" id="Leaf_2010"/>
-         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram2EditPart" id="FlowDiagram_2011"/>
-         <context elements="FlowDiagram_1000,Leaf_2001,And_2002,Loop_2003,All_2004,Some_2005,Or_2006,Xor_2007,One_2008,Par_2009,Leaf_2010,FlowDiagram_2011,"/>
+         <context elements="FlowDiagram_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfLeafEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LeafEditPart" id="Leaf_2001"/>
+         <context elements="Leaf_2001"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfAndEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AndEditPart" id="And_2002"/>
+         <context elements="And_2002"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfLoopEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.LoopEditPart" id="Loop_2003"/>
+         <context elements="Loop_2003"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfAllEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.AllEditPart" id="All_2004"/>
+         <context elements="All_2004"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfSomeEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.SomeEditPart" id="Some_2005"/>
+         <context elements="Some_2005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfOrEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OrEditPart" id="Or_2006"/>
+         <context elements="Or_2006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfXorEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.XorEditPart" id="Xor_2007"/>
+         <context elements="Xor_2007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfOneEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.OneEditPart" id="One_2008"/>
+         <context elements="One_2008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfParEditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.ParEditPart" id="Par_2009"/>
+         <context elements="Par_2009"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfLeaf2EditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.Leaf2EditPart" id="Leaf_2010"/>
+         <context elements="Leaf_2010"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="ac.soton.eventb.atomicitydecomposition.diagram.providers.assistants.AtomicitydecompositionModelingAssistantProviderOfFlowDiagram2EditPart">
+         <Priority name="Lowest"/>
+         <object class="ac.soton.eventb.atomicitydecomposition.diagram.edit.parts.FlowDiagram2EditPart" id="FlowDiagram_2011"/>
+         <context elements="FlowDiagram_2011"/>
+      </modelingAssistantProvider>
+      
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
@@ -797,6 +845,72 @@
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
    </extension>
+               <extension
+                     id="proptabs"
+                     point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+                  <propertyTabs
+                        contributorId="ac.soton.eventb.atomicitydecomposition.diagram">
+                     <propertyTab
+                           category="custom_domain"
+                           id="property.tab.overview"
+                           label="Overview">
+                     </propertyTab>
+                     <propertyTab
+                           afterTab="property.tab.overview"
+                           category="custom_domain"
+                           id="property.tab.parameters"
+                           label="Parameters">
+                     </propertyTab>
+                     <propertyTab
+                           category="custom_domain"
+                           id="property.tab.allparameter"
+                           label="All Parameter">
+                     </propertyTab>
+                  </propertyTabs>
+               </extension>
+               <extension
+                     id="propsections"
+                     point="org.eclipse.ui.views.properties.tabbed.propertySections">
+                  <propertySections
+                        contributorId="ac.soton.eventb.atomicitydecomposition.diagram">
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.FlowdiagramNamePropertySection"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.FlowdiagramNamePropertySection$Filter"
+                           id="property.section.name"
+                           tab="property.tab.overview">
+                     </propertySection>
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.TypedParameterExpressionPropertySection"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.TypedParameterExpressionPropertySection$Filter"
+                           id="property.section.parameters"
+                           tab="property.tab.parameters">
+                     </propertySection>
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.AllParameterExpression"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.AllParameterExpression$Filter"
+                           id="property.section.allparameter"
+                           tab="property.tab.allparameter">
+                     </propertySection>
+                     <propertySection
+                           afterSection="property.section.sw"
+                           class="ac.soton.eventb.emf.diagrams.sheet.CommentPropertySection"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.emf.diagrams.sheet.CommentPropertySection$Filter"
+                           id="property.section.comment"
+                           tab="property.tab.overview">
+                     </propertySection>
+                     <propertySection
+                           afterSection="property.section.name"
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.FlowDiagramSWPropertySection"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.FlowDiagramSWPropertySection$FlowDiagramFilter"
+                           id="property.section.sw"
+                           tab="property.tab.overview">
+                     </propertySection>
+                  </propertySections>
+               </extension>
 
    <!-- optionally, specify keybindings -->
 </plugin>
