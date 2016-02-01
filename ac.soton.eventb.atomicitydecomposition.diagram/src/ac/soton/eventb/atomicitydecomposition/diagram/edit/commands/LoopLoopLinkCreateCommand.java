@@ -70,7 +70,7 @@ public class LoopLoopLinkCreateCommand extends EditElementCommand {
 		}
 
 		if (getSource() != null && getTarget() != null) {
-			getSource().setLoopLink(getTarget());
+			getSource().getLoopLink().add(getTarget());
 		}
 		return CommandResult.newOKCommandResult();
 

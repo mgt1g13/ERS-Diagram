@@ -337,7 +337,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getFlowDiagram_1000Text(View view) {
 		FlowDiagram domainModelElement = (FlowDiagram) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getName();
+			return String.valueOf(domainModelElement.isSw());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
@@ -551,7 +551,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getFlowDiagram_2011Text(View view) {
 		FlowDiagram domainModelElement = (FlowDiagram) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getName();
+			return String.valueOf(domainModelElement.isSw());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 2011); //$NON-NLS-1$
@@ -788,7 +788,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getFlowDiagram_4015Text(View view) {
 		FlowDiagram domainModelElement = (FlowDiagram) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getName();
+			return String.valueOf(domainModelElement.isSw());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 4015); //$NON-NLS-1$
@@ -802,7 +802,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getXor_4016Text(View view) {
 		Xor domainModelElement = (Xor) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+			return String.valueOf(domainModelElement.isRef());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 4016); //$NON-NLS-1$
@@ -816,7 +816,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getOne_4017Text(View view) {
 		One domainModelElement = (One) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+			return String.valueOf(domainModelElement.isRef());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 4017); //$NON-NLS-1$
@@ -830,7 +830,7 @@ public class AtomicitydecompositionNavigatorLabelProvider extends LabelProvider
 	private String getPar_4018Text(View view) {
 		Par domainModelElement = (Par) view.getElement();
 		if (domainModelElement != null) {
-			return domainModelElement.getReference();
+			return String.valueOf(domainModelElement.isRef());
 		} else {
 			AtomicitydecompositionDiagramEditorPlugin.getInstance().logError(
 					"No domain element for view with visualID = " + 4018); //$NON-NLS-1$

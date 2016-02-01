@@ -280,66 +280,6 @@ public class AndEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-		types.add(AtomicitydecompositionElementTypes.AndAndLink_4002);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (targetEditPart instanceof LeafEditPart) {
-			types.add(AtomicitydecompositionElementTypes.AndAndLink_4002);
-		}
-		if (targetEditPart instanceof Leaf2EditPart) {
-			types.add(AtomicitydecompositionElementTypes.AndAndLink_4002);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == AtomicitydecompositionElementTypes.AndAndLink_4002) {
-			types.add(AtomicitydecompositionElementTypes.Leaf_2001);
-			types.add(AtomicitydecompositionElementTypes.Leaf_2010);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-		types.add(AtomicitydecompositionElementTypes.FlowDiagramRefine_4014);
-		types.add(AtomicitydecompositionElementTypes.FlowDiagram_4015);
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-		LinkedList<IElementType> types = new LinkedList<IElementType>();
-		if (relationshipType == AtomicitydecompositionElementTypes.FlowDiagramRefine_4014) {
-			types.add(AtomicitydecompositionElementTypes.FlowDiagram_2011);
-		} else if (relationshipType == AtomicitydecompositionElementTypes.FlowDiagram_4015) {
-			types.add(AtomicitydecompositionElementTypes.Leaf_2001);
-			types.add(AtomicitydecompositionElementTypes.Leaf_2010);
-		}
-		return types;
-	}
-
-	/**
-	 * @generated
-	 */
 	public class AndFigure extends Ellipse {
 
 		/**
