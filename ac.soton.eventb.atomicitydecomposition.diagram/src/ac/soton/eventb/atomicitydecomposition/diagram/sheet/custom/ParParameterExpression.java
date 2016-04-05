@@ -13,12 +13,11 @@ import org.eclipse.jface.viewers.IFilter;
 import org.eventb.emf.core.CorePackage;
 import org.eventb.emf.core.EventBNamed;
 
-import ac.soton.eventb.atomicitydecomposition.FlowDiagram;
-
+import ac.soton.eventb.atomicitydecomposition.Par;
 import ac.soton.eventb.emf.diagrams.util.custom.DiagramUtils;
 import ac.soton.eventb.atomicitydecomposition.AtomicitydecompositionPackage;
 
-public class TypedParameterExpressionPropertySection extends ParametersPropertySection{
+public class ParParameterExpression  extends ParametersPropertySection{
 
 	/**
 	 * Element Filter for this property section.
@@ -26,13 +25,13 @@ public class TypedParameterExpressionPropertySection extends ParametersPropertyS
 	public static final class Filter implements IFilter {
 		@Override
 		public boolean select(Object toTest) {
-			return DiagramUtils.unwrap(toTest) instanceof FlowDiagram;
+			return DiagramUtils.unwrap(toTest) instanceof Par;
 		}
 	}
 	
 	@Override
 	protected EReference getFeature() {
-		return AtomicitydecompositionPackage.eINSTANCE.getFlowDiagram_Parameters();
+		return AtomicitydecompositionPackage.eINSTANCE.getPar_NewParameter();
 	}
 	
 	@Override
@@ -40,12 +39,19 @@ public class TypedParameterExpressionPropertySection extends ParametersPropertyS
 		switch (col) {
 		case 0 : return CorePackage.eINSTANCE.getEventBNamed_Name();
 		case 1 : return CoreextensionPackage.eINSTANCE.getType_Type();
+		//case 1 : return AtomicitydecompositionPackage.eINSTANCE.getAll_NewParameter();
 		case 2 : return AtomicitydecompositionPackage.eINSTANCE.getTypedParameterExpression_InputExpression();
 		case 3 : return CorePackage.eINSTANCE.getEventBCommented_Comment();
 		default : return null;
 		}
 		
 	}
+	
+	@Override
+	protected boolean isRodinKeyboard(final int col) {
+		return col==1 ? true : false;
+	}
+	
 	@Override
 	protected boolean isMulti(final int col){
 		return col==3 ? true : false;
@@ -61,6 +67,5 @@ public class TypedParameterExpressionPropertySection extends ParametersPropertyS
 		default : return -1;	//unknown
 		}
 	}
-	
-	
 }
+
