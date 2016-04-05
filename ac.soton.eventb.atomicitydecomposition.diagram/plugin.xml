@@ -866,6 +866,21 @@
                            id="property.tab.allparameter"
                            label="All Parameter">
                      </propertyTab>
+                     <propertyTab
+                           category="custom_domain"
+                           id="property.tab.someparameter"
+                           label="Some Parameter">
+                     </propertyTab>
+                     <propertyTab
+                           category="custom_domain"
+                           id="property.tab.oneparameter"
+                           label="One Parameter">
+                     </propertyTab>
+                     <propertyTab
+                           category="custom_domain"
+                           id="property.tab.parparameter"
+                           label="Par Parameter">
+                     </propertyTab>
                   </propertyTabs>
                </extension>
                <extension
@@ -908,6 +923,27 @@
                            filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.FlowDiagramSWPropertySection$FlowDiagramFilter"
                            id="property.section.sw"
                            tab="property.tab.overview">
+                     </propertySection>
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.SomeParameterExpression"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.SomeParameterExpression$Filter"
+                           id="property.section.someparameter"
+                           tab="property.tab.someparameter">
+                     </propertySection>
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.OneParameterExpression"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.OneParameterExpression$Filter"
+                           id="property.section.oneparameter"
+                           tab="property.tab.oneparameter">
+                     </propertySection>
+                     <propertySection
+                           class="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.ParParameterExpression"
+                           enablesFor="1"
+                           filter="ac.soton.eventb.atomicitydecomposition.diagram.sheet.custom.ParParameterExpression$Filter"
+                           id="property.section.parparameter"
+                           tab="property.tab.parparameter">
                      </propertySection>
                   </propertySections>
                </extension>
